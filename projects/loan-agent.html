@@ -11,6 +11,29 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="../style.css" />
+
+  <style>
+    .tba-wrap {
+      min-height: calc(100vh - var(--topbar-height));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .tba-wrap .tba-label {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 13px;
+      letter-spacing: .08em;
+      color: var(--muted-soft);
+      margin-bottom: 14px;
+    }
+    .tba-wrap .tba-text {
+      font-size: 28px;
+      font-weight: 500;
+      color: var(--text);
+      letter-spacing: .04em;
+    }
+  </style>
 </head>
 <body>
 
@@ -24,16 +47,6 @@
     <div class="sidebar-scroll">
 
       <section class="sidebar-group">
-        <h1>PROJECT</h1>
-        <a href="#overview">Overview</a>
-        <a href="#features">Key Features</a>
-        <a href="#improvements">Improvements</a>
-        <a href="#demo">Demo</a>
-      </section>
-
-      <div class="sidebar-divider"></div>
-
-      <section class="sidebar-group">
         <h2>Navigate</h2>
         <a href="../index.html#projects and research" class="back-link">← Back to Projects</a>
       </section>
@@ -42,169 +55,12 @@
   </aside>
 
   <main class="main-content">
-
-    <section id="overview" class="section">
-      <div class="content-wrap">
-        <div class="section-header">
-          <p class="eyebrow">OVERVIEW</p>
-          <h2>금융 대출상품 추천 AI Agent</h2>
-          <p>
-            광주은행 대출 상품 공시 정보를 검색해 사용자의 재무 상황에 맞는 상품을 추천하고, 예상 상환액까지
-            계산해주는 RAG 기반 AI Agent입니다. 은행 업무 특성상 고객 재무 정보를 외부로 보낼 수 없다는 제약을
-            반영해, AI 모델(채팅·임베딩)을 전부 로컬 환경에서 구동하는 구조로 직접 전환해 설계·구현했습니다.
-          </p>
-        </div>
-
-        <div class="media-box">
-          <div class="file-meta">
-            <span>OVERVIEW.PNG</span>
-            <span>PREVIEW</span>
-          </div>
-          <img class="media-photo" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450'%3E%3Crect width='800' height='450' fill='%232a2a2c'/%3E%3Ctext x='400' y='225' font-family='monospace' font-size='16' fill='%238e8e93' text-anchor='middle' dominant-baseline='middle'%3EIMAGE PLACEHOLDER%3C/text%3E%3C/svg%3E" alt="프로젝트 개요 이미지를 추가하세요" />
-        </div>
-
-        <div class="project-meta">
-          <span>Python</span>
-          <span>LangGraph</span>
-          <span>FastAPI</span>
-          <span>PostgreSQL</span>
-          <span>pgvector</span>
-          <span>Docker</span>
-        </div>
-
-        <div class="architecture">
-          <span>Crawler</span><b>→</b>
-          <span>Embedding</span><b>→</b>
-          <span>pgvector</span><b>→</b>
-          <span>Retriever</span><b>→</b>
-          <span>LLM Agent</span><b>→</b>
-          <span>FastAPI</span>
-        </div>
-
-        <div class="feature-list">
-          <article class="feature-item">
-            <div class="feature-item__id">APR_01</div>
-            <div class="feature-item__body">
-              <h3 class="feature-item__title">AI 생성과 결정론적 계산 분리</h3>
-              <p class="feature-item__desc">상환액·DSR 같은 숫자는 AI가 아니라 별도의 결정론적 계산 로직으로 산출하고, AI는 그 결과를 자연어로 설명하는 역할만 맡습니다. AI가 금액을 잘못 계산하거나 지어내는 걸 구조적으로 차단하기 위한 설계입니다.</p>
-            </div>
-          </article>
-
-          <article class="feature-item">
-            <div class="feature-item__id">APR_02</div>
-            <div class="feature-item__body">
-              <h3 class="feature-item__title">온프레미스 전환</h3>
-              <p class="feature-item__desc">은행은 고객 재무 정보를 외부 클라우드 AI로 보내기 어렵다는 점을 반영해, 채팅·임베딩 모델을 전부 로컬(Ollama)로 구동하도록 구조를 전환했습니다.</p>
-            </div>
-          </article>
-
-          <article class="feature-item">
-            <div class="feature-item__id">RES_01</div>
-            <div class="feature-item__body">
-              <h3 class="feature-item__title">사실 정보 원문 표시 검증</h3>
-              <p class="feature-item__desc">상품명·한도·금리 같은 사실 정보는 항상 크롤링 원문 그대로 표시하도록 구조화 추출 단계에서 검증해, AI가 수치를 임의로 바꾸는 사례가 없도록 했습니다.</p>
-            </div>
-          </article>
-
-          <article class="feature-item">
-            <div class="feature-item__id">RES_02</div>
-            <div class="feature-item__body">
-              <h3 class="feature-item__title">검색 도구 단위 테스트</h3>
-              <p class="feature-item__desc">AI Agent가 쓰는 검색 도구(search_loan_products)에 단위 테스트를 작성해 결과가 항상 올바른 형식으로 반환되는지 확인했습니다. 사람 라벨링 기반의 정량적 검색 품질 평가(Precision@k, Hit Rate, MRR)는 ETF 프로젝트에서 먼저 도입했고, 이 프로젝트에도 적용할 계획입니다.</p>
-            </div>
-          </article>
-        </div>
+    <div class="tba-wrap">
+      <div>
+        <p class="tba-label">LOAN RECOMMENDATION AI AGENT</p>
+        <p class="tba-text">TBA</p>
       </div>
-    </section>
-
-    <section id="features" class="section section-alt">
-      <div class="content-wrap">
-        <div class="section-header">
-          <p class="eyebrow">KEY FEATURES</p>
-          <h2>주요 기능</h2>
-        </div>
-
-        <div class="feature-list">
-          <article class="feature-item">
-            <div class="feature-item__id">FEAT_01</div>
-            <div class="feature-item__body">
-              <h3 class="feature-item__title">AI 상담 추천</h3>
-              <p class="feature-item__desc">재무 상황(소득·신용점수·대출 목적 등)을 자연어로 입력하면, 조건에 맞는 대출 상품을 추천 이유·한도·금리·출처 링크와 함께 카드 형태로 보여줍니다.</p>
-              <div class="feature-item__media">
-                <img class="media-photo" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450'%3E%3Crect width='800' height='450' fill='%232a2a2c'/%3E%3Ctext x='400' y='225' font-family='monospace' font-size='16' fill='%238e8e93' text-anchor='middle' dominant-baseline='middle'%3EIMAGE PLACEHOLDER%3C/text%3E%3C/svg%3E" alt="기능 스크린샷을 추가하세요" />
-              </div>
-            </div>
-          </article>
-
-          <article class="feature-item">
-            <div class="feature-item__id">FEAT_02</div>
-            <div class="feature-item__body">
-              <h3 class="feature-item__title">상환액 계산기 연동</h3>
-              <p class="feature-item__desc">추천받은 상품을 그대로 상환 계산기로 넘겨, 원금·금리·기간·상환방식을 입력하면 월 상환액과 총 이자를 즉시 계산합니다.</p>
-              <div class="feature-item__media">
-                <img class="media-photo" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450'%3E%3Crect width='800' height='450' fill='%232a2a2c'/%3E%3Ctext x='400' y='225' font-family='monospace' font-size='16' fill='%238e8e93' text-anchor='middle' dominant-baseline='middle'%3EIMAGE PLACEHOLDER%3C/text%3E%3C/svg%3E" alt="기능 스크린샷을 추가하세요" />
-              </div>
-            </div>
-          </article>
-
-          <article class="feature-item">
-            <div class="feature-item__id">FEAT_03</div>
-            <div class="feature-item__body">
-              <h3 class="feature-item__title">DSR 계산 &amp; 조건 비교</h3>
-              <p class="feature-item__desc">연소득을 추가로 입력하면 DSR까지 함께 계산되고, '다른 상환 기간과 비교하기'로 서로 다른 조건의 월 상환액·총 이자를 나란히 비교할 수 있습니다.</p>
-              <div class="feature-item__media">
-                <img class="media-photo" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450'%3E%3Crect width='800' height='450' fill='%232a2a2c'/%3E%3Ctext x='400' y='225' font-family='monospace' font-size='16' fill='%238e8e93' text-anchor='middle' dominant-baseline='middle'%3EIMAGE PLACEHOLDER%3C/text%3E%3C/svg%3E" alt="기능 스크린샷을 추가하세요" />
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="improvements" class="section">
-      <div class="content-wrap">
-        <div class="section-header">
-          <p class="eyebrow">IMPROVEMENTS</p>
-          <h2>개선할 점</h2>
-        </div>
-
-        <div class="feature-list">
-          <article class="feature-item">
-            <div class="feature-item__id">IMP_01</div>
-            <div class="feature-item__body">
-              <h3 class="feature-item__title">검색 품질 정량 평가 도입</h3>
-              <p class="feature-item__desc">ETF 프로젝트에서 쓴 사람 라벨링 기반 평가(Precision@k, Hit Rate, MRR)를 이 프로젝트에도 적용해, 대출 상품 검색 품질을 수치로 검증할 계획입니다.</p>
-            </div>
-          </article>
-
-          <article class="feature-item">
-            <div class="feature-item__id">IMP_02</div>
-            <div class="feature-item__body">
-              <h3 class="feature-item__title">실제 심사 데이터 반영</h3>
-              <p class="feature-item__desc">현재는 공개된 상품 정보만 사용하는데, 실제 신용 심사 데이터와 연동하면 더 정확한 승인 가능성까지 안내할 수 있을 것 같습니다.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="demo" class="section section-alt">
-      <div class="content-wrap">
-        <div class="section-header">
-          <p class="eyebrow">DEMO</p>
-          <h2>시연 영상</h2>
-        </div>
-
-        <div class="media-box">
-          <div class="file-meta">
-            <span>DEMO.GIF</span>
-            <span>PREVIEW</span>
-          </div>
-          <div class="media-placeholder">GIF / VIDEO PLACEHOLDER</div>
-        </div>
-      </div>
-    </section>
-
+    </div>
   </main>
 
   <script src="../script.js"></script>

@@ -9,3 +9,5 @@ Thumbs.db
 # Env / secrets (none expected in this static site, kept as a safeguard)
 .env
 .env.local
+# Local backups of replaced pages (not for deployment)
+_backup/
