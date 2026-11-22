@@ -9,6 +9,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
 
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -48,29 +51,33 @@
     <section id="home" class="section hero">
       <div class="content-wrap">
         <div class="hero-grid">
-          <div>
+          <div class="hero-head">
             <p class="eyebrow">PROFILE</p>
             <h1>Author_Info</h1>
-
-            <h2>김지웅 <span class="hero-role"> <span class="hl">수학과 통계학</span> 기반으로 <span class="hl">신뢰도를 검증</span>하는 <span class="hl">AI Engineer</span></span></h2>
-
-            <p class="hero-description">
-              <span class="hl">통계적 실험과 정량적 평가</span>로 <span class="hl">AI 모델의 성능과 신뢰성을 검증</span>합니다.
-              <br><span class="hl">LLM/RAG 기반</span> 서비스의 <span class="hl">응답 정확도와 신뢰성을 개선</span>하는 데 집중합니다.
-            </p>
-
-            <p class="hero-keywords">#Mathematics&amp;Statistics #MachineLearning #LLM/RAG #AIAgent #AIEvaluation</p>
-
-
           </div>
 
-          <aside class="profile-box">
-            <div class="file-meta">
-              <span>PROFILE.JPG</span>
-              <span>PREVIEW</span>
+          <div class="profile-card__id">
+            <h2>김지웅 </h2>
+
+            <div class="hero-meta">
+              <p class="hero-role-line"><span class="hl">AI Engineer</span> Based on Statistics</p>
+              <p class="hero-description">
+                통계학 기반의 <span class="hl">데이터 분석부터 머신러닝, LLM 기반 서비스 개발, 배포 및 운영</span>까지 수행합니다.
+              </p>
+
+              <p class="hero-stack-comment">/* Statistics · Machine Learning · Deep Learning / LLM · NLP */</p>
             </div>
-            <img src="assets/profile.jpeg" alt="프로필 사진" class="profile-photo">
-          </aside>
+          </div>
+
+          <div class="hero-photo-slot">
+            <aside class="profile-box profile-box--sm">
+              <div class="file-meta">
+                <span>PROFILE.JPG</span>
+                <span>PREVIEW</span>
+              </div>
+              <img src="assets/profile.jpeg" alt="프로필 사진" class="profile-photo-sm">
+            </aside>
+          </div>
         </div>
       </div>
     </section>
@@ -79,83 +86,96 @@
       <div class="content-wrap">
         <div class="section-header">
           <p class="eyebrow">PROJECTS AND RESEARCH</p>
-          <h2>Repositories</h2>
+          <h2>Collections</h2>
         </div>
 
-        <article id="etf-agent" class="project-row">
-          <div class="project-number">001</div>
+        <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+          <symbol id="i-folder-open" viewBox="0 0 24 24"><path d="m6 14 1.5-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.54 6a2 2 0 0 1-1.95 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2"/></symbol>
+        </svg>
 
-          <div class="project-main">
-            <p class="project-label">FINANCE AI</p>
-            <h3><a href="projects/etf-agent.html">개인맞춤형 ETF 추천 AI Agent</a></h3>
+        <div class="archive-panel">
 
-            <p>
-              투자 성향에 맞는 ETF를 찾아 추천해주는 AI 서비스
-            </p>
-
-            <div class="project-meta">
-              <span>Python</span>
-              <span>LLM</span>
-              <span>RAG</span>
-              <span>Financial Data</span>
-            </div>
+          <div class="folder-grid">
+            <button class="folder folder--sage" type="button" aria-expanded="false" aria-controls="folder-data" data-folder="data">
+              <span class="folder__tile">
+                <span class="folder__tag">DA</span>
+                <span class="folder__no">01</span>
+                <svg class="folder__icon"><use href="#i-folder-open"/></svg>
+              </span>
+              <span class="folder__name">Data Analysis with Statistics</span>
+            </button>
+            <button class="folder folder--taupe" type="button" aria-expanded="false" aria-controls="folder-ml" data-folder="ml">
+              <span class="folder__tile">
+                <span class="folder__tag">ML &amp; DL</span>
+                <span class="folder__no">02</span>
+                <svg class="folder__icon"><use href="#i-folder-open"/></svg>
+              </span>
+              <span class="folder__name">Machine Learning & Deep Learning</span>
+            </button>
+            <button class="folder folder--slate" type="button" aria-expanded="false" aria-controls="folder-agent" data-folder="agent">
+              <span class="folder__tile">
+                <span class="folder__tag">AI Agent</span>
+                <span class="folder__no">03</span>
+                <svg class="folder__icon"><use href="#i-folder-open"/></svg>
+              </span>
+              <span class="folder__name">AI Agent with LLM</span>
+            </button>
+            <button class="folder folder--mauve" type="button" aria-expanded="false" aria-controls="folder-ax" data-folder="ax">
+              <span class="folder__tile">
+                <span class="folder__tag">AX</span>
+                <span class="folder__no">04</span>
+                <svg class="folder__icon"><use href="#i-folder-open"/></svg>
+              </span>
+              <span class="folder__name">AI Transformation</span>
+            </button>
           </div>
 
-          <div class="project-links">
-            <a href="#">Github</a>
+          <div class="folder-contents" id="folder-data" hidden>
+            <p class="repo-empty">/* TBA */</p>
           </div>
-        </article>
-
-        <article id="loan-agent" class="project-row">
-          <div class="project-number">002</div>
-
-          <div class="project-main">
-            <p class="project-label">AI AGENT · FINANCE</p>
-            <h3><a href="projects/loan-agent.html">금융 대출상품 추천 AI Agent</a></h3>
-
-            <p>
-              사용자 조건에 맞는 대출상품을 찾아 추천해주는 AI 서비스
-            </p>
-
-            <div class="project-meta">
-              <span>Python</span>
-              <span>LangGraph</span>
-              <span>FastAPI</span>
-              <span>PostgreSQL</span>
-              <span>pgvector</span>
-              <span>Docker</span>
-            </div>
+          <div class="folder-contents" id="folder-ml" hidden>
+            <article id="ecg-project" class="folder-item">
+              <span class="folder-item__ref">DL-001</span>
+              <div class="folder-item__main">
+                <h3><a href="projects/ecg-project.html">Time-Series Deep Learning in Healthcare</a></h3>
+                <p>심전도 데이터를 분석해 심장 질환 위험을 판별하는 딥러닝 모델 연구 논문(SCIE)</p>
+                <div class="project-meta">
+                  <span>PyTorch</span>
+                  <span>1D ResNet</span>
+                  <span>LRP</span>
+                  <span>XAI</span>
+                </div>
+              </div>
+              <div class="project-links">
+                <a href="#">Github</a>
+                <a href="assets/paper.pdf" target="_blank" rel="noreferrer">Paper</a>
+              </div>
+            </article>
           </div>
-
-          <div class="project-links">
-            <a href="#">Github</a>
+          <div class="folder-contents" id="folder-agent" hidden>
+            <article id="etf-agent" class="folder-item">
+              <span class="folder-item__ref">AG-001</span>
+              <div class="folder-item__main">
+                <h3><a href="projects/etf-agent.html">ETF Advisor Agent</a></h3>
+                <p>투자 성향에 맞는 ETF를 찾아 추천해주는 AI 서비스</p>
+                <div class="project-meta">
+                  <span>Python</span>
+                  <span>LLM</span>
+                  <span>RAG</span>
+                  <span>Financial Data</span>
+                </div>
+              </div>
+              <div class="project-links">
+                <a href="#">Github</a>
+              </div>
+            </article>
           </div>
-        </article>
-
-        <article id="ecg-project" class="project-row">
-          <div class="project-number">003</div>
-
-          <div class="project-main">
-            <p class="project-label">DEEP LEARNING · XAI</p>
-            <h3><a href="projects/ecg-project.html">ECG Atrial Fibrillation Classification</a></h3>
-
-            <p>
-              심전도 데이터를 분석해 심장 질환 위험을 판별하는 딥러닝 모델 연구 논문(SCIE)
-            </p>
-
-            <div class="project-meta">
-              <span>PyTorch</span>
-              <span>1D ResNet</span>
-              <span>LRP</span>
-              <span>XAI</span>
-            </div>
+          <div class="folder-contents" id="folder-ax" hidden>
+            <p class="repo-empty">/* TBA */</p>
           </div>
 
-          <div class="project-links">
-            <a href="#">Github</a>
-            <a href="assets/paper.pdf" target="_blank" rel="noreferrer">Paper</a>
-          </div>
-        </article>
+          <p class="archive-panel__hint">SELECT A FOLDER TO VIEW ITS CONTENTS</p>
+        </div>
       </div>
     </section>
 

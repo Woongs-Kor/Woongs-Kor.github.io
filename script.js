@@ -32,3 +32,18 @@ function updateCurrentSection() {
 window.addEventListener("scroll", updateCurrentSection, { passive: true });
 window.addEventListener("resize", updateCurrentSection);
 updateCurrentSection();
+
+const folderButtons = document.querySelectorAll(".folder");
+folderButtons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const willOpen = btn.getAttribute("aria-expanded") !== "true";
+    folderButtons.forEach((other) => {
+      other.setAttribute("aria-expanded", "false");
+      document.getElementById(other.getAttribute("aria-controls")).hidden = true;
+    });
+    if (willOpen) {
+      btn.setAttribute("aria-expanded", "true");
+      document.getElementById(btn.getAttribute("aria-controls")).hidden = false;
+    }
+  });
+});
