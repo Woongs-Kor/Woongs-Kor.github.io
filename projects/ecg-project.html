@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="ECG Atrial Fibrillation Classification | Jiwoong Kim AI Engineer Portfolio" />
-  <title>ECG Atrial Fibrillation Classification | Jiwoong Kim</title>
+  <meta name="description" content="Time-Series Data Classification Using Deep Learning | Jiwoong Kim AI Engineer Portfolio" />
+  <title>Time-Series Data Classification Using Deep Learning | Jiwoong Kim</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,7 +15,7 @@
 
   <link rel="stylesheet" href="../style.css" />
 </head>
-<body>
+<body class="detail-page">
 
   <header class="topbar">
     <div class="topbar__brand">
@@ -29,8 +29,9 @@
       <section class="sidebar-group">
         <h1>PROJECT</h1>
         <a href="#overview">Overview</a>
-        <a href="#features">Key Features</a>
-        <a href="#improvements">Improvements</a>
+        <a href="#problem">Problem &amp; Goal</a>
+        <a href="#method">Data &amp; Method</a>
+        <a href="#results">Results</a>
         <a href="#publication">Publication</a>
       </section>
 
@@ -46,16 +47,46 @@
 
   <main class="main-content">
 
+    <header class="detail-head">
+      <div class="content-wrap">
+        <p class="eyebrow">DL-001</p>
+        <div class="detail-title-row">
+          <h1 class="detail-title">Time-Series Data Classification Using Deep Learning</h1>
+          <div class="project-links">
+            <a href="https://github.com/Woongs-Kor/nsr-single-lead-ecg-afib-classification" target="_blank" rel="noreferrer">Github</a>
+            <a href="../assets/paper.pdf" target="_blank" rel="noreferrer">Paper</a>
+          </div>
+        </div>
+        <p class="detail-sub">단일 리드 모바일 ECG로 정상 동리듬 상태의 심방세동 위험을 식별한 연구</p>
+      </div>
+    </header>
+
     <section id="overview" class="section">
       <div class="content-wrap">
         <div class="section-header">
           <p class="eyebrow">OVERVIEW</p>
-          <h2>ECG Atrial Fibrillation Classification</h2>
           <p>
-            Single-lead ECG를 기반으로 심방세동을 분류하고,
-            Layer-wise Relevance Propagation으로 모델 판단 근거를 분석한 연구 프로젝트입니다.
-            (담당 역할과 연구 기간을 추가로 정리하세요.)
+            정상 동리듬(NSR) 상태에서 촬영한 단일 리드 모바일 심전도(ECG)로 심방세동(AF) 위험을 식별하는 딥러닝 모델을 개발하고, RNN · LSTM · ResNet50 세 모델의 성능을 비교한 연구입니다.
           </p>
+        </div>
+
+        <div class="info-grid">
+          <div class="info-card">
+            <span class="info-card__label">Data</span>
+            <span class="info-card__value">6,719명 · ECG 13,509건</span>
+          </div>
+          <div class="info-card">
+            <span class="info-card__label">Result</span>
+            <span class="info-card__value">AUC 0.79 · F1 71.9%</span>
+          </div>
+          <div class="info-card">
+            <span class="info-card__label">Tech</span>
+            <span class="info-card__value">1D ResNet50 · PyTorch</span>
+          </div>
+          <div class="info-card">
+            <span class="info-card__label">Role</span>
+            <span class="info-card__value">Co-First Author</span>
+          </div>
         </div>
 
         <div class="media-box">
@@ -63,124 +94,150 @@
             <span>OVERVIEW.PNG</span>
             <span>PREVIEW</span>
           </div>
-          <img class="media-photo" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450'%3E%3Crect width='800' height='450' fill='%232a2a2c'/%3E%3Ctext x='400' y='225' font-family='monospace' font-size='16' fill='%238e8e93' text-anchor='middle' dominant-baseline='middle'%3EIMAGE PLACEHOLDER%3C/text%3E%3C/svg%3E" alt="프로젝트 개요 이미지를 추가하세요" />
-        </div>
-
-        <div class="project-meta">
-          <span>PyTorch</span>
-          <span>1D ResNet</span>
-          <span>LRP</span>
-          <span>XAI</span>
-        </div>
-
-        <div class="feature-list">
-          <article class="feature-item">
-            <div class="feature-item__id">APR_01</div>
-            <div class="feature-item__body">
-              <h3 class="feature-item__title">Approach</h3>
-              <p class="feature-item__desc">왜 1D ResNet을 선택했는지, 데이터 전처리에서 중요했던 판단을 한두 줄로 입력하세요. (정량 결과는 Publication 섹션 참고)</p>
-            </div>
-          </article>
+          <img class="media-photo media-photo--natural" src="../assets/paper_overview.png" alt="단일 리드 모바일 ECG 기반 AF 예측 방법: 입력, 데이터 처리, 세그먼트, ResNet50, 출력 (논문 Fig. 1)" />
+          <p class="media-caption">Fig. 1 from Kim J, et al. J Korean Med Sci. 2024;39(5):e56 (CC BY-NC 4.0)</p>
         </div>
       </div>
     </section>
 
-    <section id="features" class="section section-alt">
+    <section id="problem" class="section section-alt">
       <div class="content-wrap">
         <div class="section-header">
-          <p class="eyebrow">KEY FEATURES</p>
-          <h2>주요 기능</h2>
+          <p class="eyebrow">PROBLEM &amp; GOAL</p>
+          <h2>Why?</h2>
+          <p class="section-sub">왜 이 연구인가</p>
         </div>
 
-        <div class="feature-list">
-          <article class="feature-item">
-            <div class="feature-item__id">FEAT_01</div>
-            <div class="feature-item__body">
-              <h3 class="feature-item__title">기능 제목을 입력하세요</h3>
-              <p class="feature-item__desc">내용 추가 예정입니다. 어떤 기능인지, 어떤 기술로 구현했는지 설명하세요.</p>
-              <div class="feature-item__media">
-                <img class="media-photo" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450'%3E%3Crect width='800' height='450' fill='%232a2a2c'/%3E%3Ctext x='400' y='225' font-family='monospace' font-size='16' fill='%238e8e93' text-anchor='middle' dominant-baseline='middle'%3EIMAGE PLACEHOLDER%3C/text%3E%3C/svg%3E" alt="기능 스크린샷을 추가하세요" />
-              </div>
-            </div>
-          </article>
+        <ul class="bullet-list">
+          <li>심방세동(AF)은 색전성 뇌졸중의 주요 원인이며, 합병증을 막으려면 조기 발견이 중요합니다.</li>
+          <li>AF는 발작성이거나 증상이 없는 경우가 많아, 증상이 나타나기 전에 찾아내기 어렵습니다.</li>
+          <li>12-lead ECG는 일시적인 부정맥을 포착하는 데 한계가 있고, Holter 모니터는 장시간 착용 부담이 큽니다.</li>
+          <li>단일 리드 모바일 ECG는 장기간 편하게 측정할 수 있지만, 정상 동리듬 상태에서 AF를 식별하는 연구는 부족했습니다.</li>
+        </ul>
 
-          <article class="feature-item">
-            <div class="feature-item__id">FEAT_02</div>
-            <div class="feature-item__body">
-              <h3 class="feature-item__title">기능 제목을 입력하세요</h3>
-              <p class="feature-item__desc">내용 추가 예정입니다.</p>
-              <div class="feature-item__media">
-                <img class="media-photo" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450'%3E%3Crect width='800' height='450' fill='%232a2a2c'/%3E%3Ctext x='400' y='225' font-family='monospace' font-size='16' fill='%238e8e93' text-anchor='middle' dominant-baseline='middle'%3EIMAGE PLACEHOLDER%3C/text%3E%3C/svg%3E" alt="기능 스크린샷을 추가하세요" />
-              </div>
-            </div>
-          </article>
-        </div>
+        <p class="goal">
+          <strong>Goal.</strong> 정상 동리듬일 때 측정한 단일 리드 모바일 ECG에서, 사람 눈으로는 구분하기 어려운 AF의 미세한 특징을 딥러닝으로 식별할 수 있는지 검증합니다.
+        </p>
       </div>
     </section>
 
-    <section id="improvements" class="section">
+    <section id="method" class="section">
       <div class="content-wrap">
         <div class="section-header">
-          <p class="eyebrow">IMPROVEMENTS</p>
-          <h2>개선할 점</h2>
+          <p class="eyebrow">DATA &amp; METHOD</p>
+          <h2>How?</h2>
+          <p class="section-sub">데이터와 모델</p>
         </div>
 
-        <div class="feature-list">
-          <article class="feature-item">
-            <div class="feature-item__id">IMP_01</div>
-            <div class="feature-item__body">
-              <h3 class="feature-item__title">한계점 또는 개선 방향을 입력하세요</h3>
-              <p class="feature-item__desc">내용 추가 예정입니다. 지금 구조의 한계와, 더 시간이 있었다면 어떻게 개선했을지 적으세요.</p>
-            </div>
-          </article>
+        <div class="flow">
+          <span class="flow__step">Raw ECG<small>256 Hz · 약 60초</small></span>
+          <span class="flow__arrow">&rarr;</span>
+          <span class="flow__step">Preprocessing<small>PQRST 검출 · 0.5 Hz high-pass</small></span>
+          <span class="flow__arrow">&rarr;</span>
+          <span class="flow__step">Segmentation<small>10초 단위</small></span>
+          <span class="flow__arrow">&rarr;</span>
+          <span class="flow__step">Under-sampling<small>클래스 불균형 보정</small></span>
+          <span class="flow__arrow">&rarr;</span>
+          <span class="flow__step">Model<small>ResNet50 · RNN · LSTM</small></span>
+          <span class="flow__arrow">&rarr;</span>
+          <span class="flow__step">Output<small>AF / Healthy</small></span>
         </div>
+
+        <dl class="kv">
+          <div class="kv__row">
+            <dt>Collection</dt>
+            <dd>전남대학교병원 순환기내과·신경과 방문/입원 환자의 모바일 ECG(mobiCARE MC100)를 2021.07~2022.12 동안 전향적으로 수집. 모든 ECG는 임상 전문가가 진단·라벨링 (IRB 승인)</dd>
+          </div>
+          <div class="kv__row">
+            <dt>Label</dt>
+            <dd>AF 이력(12-lead ECG에서 AF가 1회 이상 기록된 환자)의 NSR ECG는 &ldquo;AF&rdquo;, 그 외는 &ldquo;Healthy&rdquo;. AF·비동리듬·정보 누락·AF 절제술 환자 ECG는 제외</dd>
+          </div>
+          <div class="kv__row">
+            <dt>Imbalance</dt>
+            <dd>Healthy 세그먼트 38,760개를 무작위 제외(random under-sampling) &rarr; AF 15,157 · Healthy 16,610</dd>
+          </div>
+          <div class="kv__row">
+            <dt>Split</dt>
+            <dd>Train 19,060 · Internal validation 6,353 · Test 6,354 (6:2:2)</dd>
+          </div>
+          <div class="kv__row">
+            <dt>Training</dt>
+            <dd>AdamW, learning rate 0.0001, batch size 32, 최대 50 epoch (12 epoch에서 early stopping), Cross-entropy loss. Python 3.9 · PyTorch 2.0.1 · RTX 3090 Ti</dd>
+          </div>
+          <div class="kv__row">
+            <dt>Models</dt>
+            <dd>1D ResNet50을 주 모델로 사용하고, 시계열 모델인 RNN과 LSTM을 비교 대상으로 평가</dd>
+          </div>
+        </dl>
       </div>
     </section>
 
-    <section id="publication" class="section section-alt">
+    <section id="results" class="section section-alt">
+      <div class="content-wrap">
+        <div class="section-header">
+          <p class="eyebrow">RESULTS</p>
+          <h2>How well?</h2>
+          <p class="section-sub">성능 비교</p>
+          <p>
+            Test set 기준입니다. ResNet50이 Recall, F1-score, Accuracy, AUC에서 가장 높았습니다.
+          </p>
+        </div>
+
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>Model</th><th>F1-score</th><th>Recall</th><th>Precision</th><th>Accuracy</th></tr>
+            </thead>
+            <tbody>
+              <tr class="is-best"><td>ResNet50</td><td>71.9%</td><td>79.3%</td><td>65.8%</td><td>70.5%</td></tr>
+              <tr><td>LSTM</td><td>62.2%</td><td>53.7%</td><td>73.8%</td><td>68.8%</td></tr>
+              <tr><td>RNN</td><td>59.5%</td><td>50.1%</td><td>73.1%</td><td>67.4%</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <dl class="kv">
+          <div class="kv__row">
+            <dt>Test AUC</dt>
+            <dd>ResNet50 0.79</dd>
+          </div>
+          <div class="kv__row">
+            <dt>External</dt>
+            <dd>72시간 Holter ECG 160명(세그먼트 6,558개)에서 ResNet50 F1-score 64.1% · Recall 68.9% · Precision 60.0% · Accuracy 63.4% · AUC 0.68</dd>
+          </div>
+          <div class="kv__row">
+            <dt>Limits</dt>
+            <dd>외부 검증에서 성능이 내부보다 낮았고, 전향적 검증은 아직 진행 중입니다. 임상 적용을 위해서는 추가 연구가 필요합니다.</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section id="publication" class="section">
       <div class="content-wrap">
         <div class="section-header">
           <p class="eyebrow">PUBLICATION</p>
           <h2>Identification of Atrial Fibrillation With Single-Lead Mobile ECG During Normal Sinus Rhythm Using Deep Learning</h2>
-          <p>
-            모바일 single-lead 심전도로 정상동리듬(NSR) 상태에서 심방세동(AF) 발생 위험을 식별하기 위해
-            RNN, LSTM, ResNet50 세 가지 딥러닝 모델의 성능을 비교했습니다.
-            6,719명, 13,509건의 ECG 중 10,287건의 NSR ECG를 31,767개의 10초 세그먼트로 분할해 학습·검증에 사용했습니다.
-          </p>
         </div>
 
-        <div class="feature-list">
-          <article class="feature-item">
-            <div class="feature-item__id">PUB_01</div>
-            <div class="feature-item__body">
-              <h3 class="feature-item__title">게재 정보</h3>
-              <p class="feature-item__desc">
-                Journal of Korean Medical Science (JKMS), 2024. Co-First Author.
-                <br>DOI: 10.3346/jkms.2024.39.e56
-              </p>
-            </div>
-          </article>
-
-          <article class="feature-item">
-            <div class="feature-item__id">PUB_02</div>
-            <div class="feature-item__body">
-              <h3 class="feature-item__title">핵심 결과</h3>
-              <p class="feature-item__desc">
-                ResNet50이 RNN·LSTM 대비 가장 우수한 성능을 보였습니다 (Test set 기준).
-                <br>F1-score 71.9% · Recall 79.3% · Precision 65.8% · Accuracy 70.5% · AUC 0.79
-                <br>외부 검증(72시간 Holter ECG)에서도 AUC 0.68로 일반화 성능을 확인했습니다.
-              </p>
-            </div>
-          </article>
-        </div>
-
-        <div class="media-box">
-          <div class="file-meta">
-            <span>FIGURE.PNG</span>
-            <span>PREVIEW</span>
+        <dl class="kv">
+          <div class="kv__row">
+            <dt>Journal</dt>
+            <dd>Journal of Korean Medical Science (JKMS), 2024 Feb 5;39(5):e56</dd>
           </div>
-          <img class="media-photo" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450'%3E%3Crect width='800' height='450' fill='%232a2a2c'/%3E%3Ctext x='400' y='225' font-family='monospace' font-size='16' fill='%238e8e93' text-anchor='middle' dominant-baseline='middle'%3EIMAGE PLACEHOLDER%3C/text%3E%3C/svg%3E" alt="제안 모델 구조 또는 ROC 곡선 등 논문의 핵심 그림을 추가하세요" />
-        </div>
+          <div class="kv__row">
+            <dt>Authorship</dt>
+            <dd>Co-First Author (Jiwoong Kim, Sun Jung Lee)</dd>
+          </div>
+          <div class="kv__row">
+            <dt>Contribution</dt>
+            <dd>개념 설계 · 데이터 정리 · 방법론 · 모델 구현 · 분석 · 시각화 · 논문 초안 작성</dd>
+          </div>
+          <div class="kv__row">
+            <dt>DOI</dt>
+            <dd><a href="https://doi.org/10.3346/jkms.2024.39.e56" target="_blank" rel="noreferrer">10.3346/jkms.2024.39.e56</a></dd>
+          </div>
+        </dl>
       </div>
     </section>
 

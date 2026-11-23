@@ -47,3 +47,12 @@ folderButtons.forEach((btn) => {
     }
   });
 });
+
+document.querySelectorAll("[data-open-folder]").forEach((link) => {
+  link.addEventListener("click", () => {
+    const target = document.querySelector(`.folder[data-folder="${link.dataset.openFolder}"]`);
+    if (target && target.getAttribute("aria-expanded") !== "true") {
+      target.click();
+    }
+  });
+});

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="ETF Recommendation Agent | Jiwoong Kim AI Engineer Portfolio" />
-  <title>ETF Recommendation Agent | Jiwoong Kim</title>
+  <meta name="description" content="ETF Advisor Agent | Jiwoong Kim AI Engineer Portfolio" />
+  <title>ETF Advisor Agent | Jiwoong Kim</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,31 +14,8 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
 
   <link rel="stylesheet" href="../style.css" />
-
-  <style>
-    .tba-wrap {
-      min-height: calc(100vh - var(--topbar-height));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
-    .tba-wrap .tba-label {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size: 13px;
-      letter-spacing: .08em;
-      color: var(--muted-soft);
-      margin-bottom: 14px;
-    }
-    .tba-wrap .tba-text {
-      font-size: 28px;
-      font-weight: 500;
-      color: var(--text);
-      letter-spacing: .04em;
-    }
-  </style>
 </head>
-<body>
+<body class="detail-page">
 
   <header class="topbar">
     <div class="topbar__brand">
@@ -50,6 +27,19 @@
     <div class="sidebar-scroll">
 
       <section class="sidebar-group">
+        <h1>PROJECT</h1>
+        <a href="#overview">Overview</a>
+        <a href="#demo">Demo</a>
+        <a href="#problem">Problem &amp; Goal</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#troubleshooting">Troubleshooting</a>
+        <a href="#evaluation">Evaluation</a>
+        <a href="#retrospective">Retrospective</a>
+      </section>
+
+      <div class="sidebar-divider"></div>
+
+      <section class="sidebar-group">
         <h2>Navigate</h2>
         <a href="../index.html#projects and research" class="back-link">← Back to Projects</a>
       </section>
@@ -58,12 +48,324 @@
   </aside>
 
   <main class="main-content">
-    <div class="tba-wrap">
-      <div>
-        <p class="tba-label">ETF ADVISOR AGENT</p>
-        <p class="tba-text">TBA</p>
+
+    <header class="detail-head">
+      <div class="content-wrap">
+        <p class="eyebrow">AIA-001</p>
+        <div class="detail-title-row">
+          <h1 class="detail-title">ETF Advisor Agent</h1>
+          <div class="project-links">
+            <a href="https://github.com/Woongs-Kor/etf-advisor-agent" target="_blank" rel="noreferrer">Github</a>
+          </div>
+        </div>
+        <p class="detail-sub">퇴직연금 ETF·펀드 추천 AI Agent</p>
       </div>
-    </div>
+    </header>
+
+    <section id="overview" class="section">
+      <div class="content-wrap">
+        <div class="section-header">
+          <p class="eyebrow">OVERVIEW</p>
+          <p>
+            자연어 질의를 기반으로 금융상품을 검색하고, 정형·비정형 정보를 결합해 상품 비교와 설명을 지원하는 RAG 시스템입니다. 광주은행 DC형 퇴직연금에서 편입 가능한 ETF·펀드를 대상으로 기획부터 데이터 수집, 백엔드/프론트엔드 구현, 검색 품질 평가까지 전 과정을 1인으로 진행했습니다.
+          </p>
+        </div>
+
+        <div class="info-grid">
+          <div class="info-card">
+            <span class="info-card__label">Data</span>
+            <span class="info-card__value">435개 금융상품</span>
+          </div>
+          <div class="info-card">
+            <span class="info-card__label">Result</span>
+            <span class="info-card__value">Precision@10 63.9% → 87.2%</span>
+          </div>
+          <div class="info-card">
+            <span class="info-card__label">Tech</span>
+            <span class="info-card__value">LangGraph · pgvector</span>
+          </div>
+          <div class="info-card">
+            <span class="info-card__label">Role</span>
+            <span class="info-card__value">AI · Backend · Frontend</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="demo" class="section section-alt">
+      <div class="content-wrap">
+        <div class="section-header">
+          <p class="eyebrow">DEMO</p>
+          <h2>What?</h2>
+          <p class="section-sub">서비스 화면</p>
+          <p>
+            "퇴직연금에 투자할 만한 ETF를 추천해줘" 같은 자연어 질의로 바로 추천을 받을 수 있습니다.
+          </p>
+        </div>
+
+        <div class="media-box">
+          <div class="file-meta">
+            <span>DEMO.GIF</span>
+            <span>PREVIEW</span>
+          </div>
+          <div class="media-placeholder">GIF / VIDEO PLACEHOLDER</div>
+        </div>
+
+        <div class="feature-list">
+          <article class="feature-item">
+            <div class="feature-item__id">FEAT_01</div>
+            <div class="feature-item__body">
+              <h3 class="feature-item__title">AI 맞춤 추천</h3>
+              <p class="feature-item__desc">투자성향·관심 테마·투자 목적을 자연어로 입력하면, 조건에 맞는 ETF/펀드를 추천 이유·위험등급·총보수·최근 수익률과 함께 카드 형태로 보여줍니다.</p>
+            </div>
+          </article>
+
+          <article class="feature-item">
+            <div class="feature-item__id">FEAT_02</div>
+            <div class="feature-item__body">
+              <h3 class="feature-item__title">구성종목 조회</h3>
+              <p class="feature-item__desc">ETF 카드에서 클릭 한 번으로 실제 편입 종목과 비중을 펼쳐서 확인할 수 있습니다(최초 조회 후 캐시).</p>
+            </div>
+          </article>
+
+          <article class="feature-item">
+            <div class="feature-item__id">FEAT_03</div>
+            <div class="feature-item__body">
+              <h3 class="feature-item__title">테마별 탐색 &amp; 수익률 비교</h3>
+              <p class="feature-item__desc">AI 없이 17개 테마 버튼으로 즉시 상품 목록을 탐색할 수 있고, 추천된 상품들의 수익률은 막대그래프로 한눈에 비교됩니다.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="problem" class="section">
+      <div class="content-wrap">
+        <div class="section-header">
+          <p class="eyebrow">PROBLEM &amp; GOAL</p>
+          <h2>Why?</h2>
+          <p class="section-sub">왜 이 프로젝트를 만들었는가</p>
+        </div>
+
+        <div class="feature-list">
+          <article class="feature-item">
+            <div class="feature-item__id">01</div>
+            <div class="feature-item__body">
+              <p class="feature-item__desc">DC형 퇴직연금은 가입자가 수백 개 상품 목록 안에서 직접 투자상품을 골라야 하는데, 상품마다 위험등급·보수·수익률·투자 테마가 제각각이라 비교가 어렵습니다.</p>
+            </div>
+          </article>
+
+          <article class="feature-item">
+            <div class="feature-item__id">02</div>
+            <div class="feature-item__body">
+              <p class="feature-item__desc">TDF2025·TDF2040·TDF2050처럼 숫자만 다른 생애주기 상품이 많아, 검색·응답 과정에서 엉뚱한 상품을 가리킬 위험이 있습니다.</p>
+            </div>
+          </article>
+
+          <article class="feature-item">
+            <div class="feature-item__id">03</div>
+            <div class="feature-item__body">
+              <p class="feature-item__desc">LLM이 수익률·보수 같은 금융 수치를 자연어 응답 과정에서 부정확하게 생성(hallucination)할 가능성이 있습니다.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="trouble-case">
+          <div class="trouble-case__row">
+            <span class="trouble-case__label">목표</span>
+            <p class="trouble-case__value">금융상품을 정확하게 검색하고, 검증된 수치에 근거해 설명하는 Agent를 구현하는 것.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="architecture" class="section section-alt">
+      <div class="content-wrap">
+        <div class="section-header">
+          <p class="eyebrow">ARCHITECTURE</p>
+          <h2>How?</h2>
+          <p class="section-sub">전체 시스템 구조</p>
+        </div>
+
+        <div class="architecture">
+          <span>공시 데이터 변환</span><b>→</b>
+          <span>임베딩/벡터DB 적재</span><b>→</b>
+          <span>AI 검색·추천</span><b>→</b>
+          <span>정형 데이터로 사실 검증</span><b>→</b>
+          <span>응답 제공</span>
+        </div>
+
+        <div class="media-box">
+          <div class="file-meta">
+            <span>ARCHITECTURE.PNG</span>
+            <span>PREVIEW</span>
+          </div>
+          <img class="media-photo media-photo--contain" src="../assets/eft_agent.png" alt="ETF 추천 AI Agent 시스템 아키텍처 다이어그램" />
+        </div>
+
+        <div class="feature-list">
+          <article class="feature-item">
+            <div class="feature-item__id">API</div>
+            <div class="feature-item__body">
+              <h3 class="feature-item__title">FastAPI의 역할</h3>
+              <p class="feature-item__desc"><code>/recommend</code>, <code>/compare</code>, <code>/rank</code>, <code>/themes</code>, <code>/holdings</code>, <code>/news</code> 등 9개 REST 엔드포인트를 직접 설계했습니다. 벡터 검색·AI 응답이 필요한 경로와, AI 없이 즉시 응답하는 결정론적 조회 경로를 명확히 분리했습니다.</p>
+            </div>
+          </article>
+
+          <article class="feature-item">
+            <div class="feature-item__id">DB</div>
+            <div class="feature-item__body">
+              <h3 class="feature-item__title">DB 설계</h3>
+              <p class="feature-item__desc">검색은 벡터 데이터베이스(PostgreSQL + pgvector)를, 정확한 수치가 필요한 조회·비교는 별도의 정형 데이터(products.json)를 쓰도록 분리했습니다. AI가 숫자를 잘못 옮겨 적는 걸 막기 위한 설계입니다.</p>
+            </div>
+          </article>
+
+          <article class="feature-item">
+            <div class="feature-item__id">LLM</div>
+            <div class="feature-item__body">
+              <h3 class="feature-item__title">모델 선택 이유</h3>
+              <p class="feature-item__desc">채팅·임베딩 모델을 전부 로컬(Ollama, kanana-1.5-2.1b-instruct / bge-m3)로 구동하도록 했습니다. 같은 저자의 대출 상품 추천 프로젝트에서 고객 재무 정보를 외부로 보낼 수 없다는 제약을 다뤘던 것과 같은 맥락에서, 금융 데이터를 다루는 서비스는 처음부터 온프레미스로 설계하는 패턴을 이어갔습니다.</p>
+            </div>
+          </article>
+
+          <article class="feature-item">
+            <div class="feature-item__id">ME</div>
+            <div class="feature-item__body">
+              <h3 class="feature-item__title">직접 담당한 영역</h3>
+              <p class="feature-item__desc">기획, 데이터 수집/변환, 백엔드 API, AI Agent 설계, 프론트엔드, 검색 품질 평가까지 전 영역을 1인으로 담당했습니다.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="troubleshooting" class="section">
+      <div class="content-wrap">
+        <div class="section-header">
+          <p class="eyebrow">TROUBLESHOOTING</p>
+          <h2>What went wrong?</h2>
+          <p class="section-sub">기술적 문제 해결 사례</p>
+        </div>
+
+        <div class="trouble-case">
+          <div class="trouble-case__row">
+            <span class="trouble-case__label">문제</span>
+            <p class="trouble-case__value">기본 설정(청크 2,000자)에서 테마 질의 검색 품질이 기대보다 낮음 — Precision@10 63.9%</p>
+          </div>
+          <div class="trouble-case__row">
+            <span class="trouble-case__label">원인</span>
+            <p class="trouble-case__value">청크가 너무 커서 관련 없는 설명까지 함께 임베딩되어, 벡터가 특정 테마를 선명하게 나타내지 못함</p>
+          </div>
+          <div class="trouble-case__row">
+            <span class="trouble-case__label">해결</span>
+            <p class="trouble-case__value">청크 크기(100/200/500/1,000/2,000자)와 질의 템플릿·top-k를 바꿔가며 18개 질의에 대한 검색 품질을 비교하는 실험을 진행</p>
+          </div>
+          <div class="trouble-case__row">
+            <span class="trouble-case__label">결과</span>
+            <p class="trouble-case__value">청크 100자가 최적 — Precision@10 87.2%, Hit Rate 100%, MRR 0.911로 개선되어 최종 설정으로 채택</p>
+          </div>
+        </div>
+
+        <div class="trouble-case">
+          <div class="trouble-case__row">
+            <span class="trouble-case__label">문제</span>
+            <p class="trouble-case__value">운영 벡터DB 435개 상품 중 415개가 "테마" 키워드 없이 임베딩되어 테마 기반 검색 품질이 저하된 상태로 서비스되고 있었음</p>
+          </div>
+          <div class="trouble-case__row">
+            <span class="trouble-case__label">원인</span>
+            <p class="trouble-case__value">임베딩 생성 스크립트가 상품 설명 텍스트만 사용하고 테마 필드를 포함하지 않음</p>
+          </div>
+          <div class="trouble-case__row">
+            <span class="trouble-case__label">해결</span>
+            <p class="trouble-case__value">테마 필드를 포함해 전체 상품을 재임베딩하고, 같은 평가 방법(Precision@k, Hit Rate, MRR)으로 수정 전/후를 비교하는 스크립트(<code>theme_fix_before_after.py</code>) 작성</p>
+          </div>
+          <div class="trouble-case__row">
+            <span class="trouble-case__label">결과</span>
+            <p class="trouble-case__value">재라벨링이 끝나는 대로 최종 개선폭을 공개할 예정 (진행 중)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="evaluation" class="section section-alt">
+      <div class="content-wrap">
+        <div class="section-header">
+          <p class="eyebrow">EVALUATION</p>
+          <h2>How well?</h2>
+          <p class="section-sub">검색 정확도 개선 결과</p>
+          <p>
+            18개 질의에 대해 사람이 직접 관련도를 Y/N으로 라벨링하고, Precision@10 · Hit Rate · MRR을 측정했습니다. Hit Rate는 Wilson 신뢰구간, Precision·MRR은 부트스트랩으로 95% 신뢰구간을 함께 계산했습니다.
+          </p>
+        </div>
+
+        <div class="bar-chart">
+          <div class="bar-chart__axis">
+            <span>1.00</span>
+            <span>0.75</span>
+            <span>0.50</span>
+            <span>0.25</span>
+            <span>0.00</span>
+          </div>
+          <div class="bar-chart__bar">
+            <span class="bar-chart__value">0.639</span>
+            <div class="bar-chart__fill" style="height: 63.9%;"></div>
+            <span class="bar-chart__label">개선 전</span>
+          </div>
+          <div class="bar-chart__bar bar-chart__bar--after">
+            <span class="bar-chart__value">0.872</span>
+            <div class="bar-chart__fill" style="height: 87.2%;"></div>
+            <span class="bar-chart__label">개선 후</span>
+          </div>
+        </div>
+
+        <div class="feature-list feature-list--spaced">
+          <article class="feature-item">
+            <div class="feature-item__id">01</div>
+            <div class="feature-item__body">
+              <p class="feature-item__desc">Hit Rate@10: 88.9% → 100% / MRR: 0.844 → 0.911 (청크 2,000자 → 100자)</p>
+            </div>
+          </article>
+          <article class="feature-item">
+            <div class="feature-item__id">02</div>
+            <div class="feature-item__body">
+              <p class="feature-item__desc">17개 투자 테마 전체 커버리지 평가(18개 질의)에서는 Hit Rate 88.9%(16/18), MRR 0.80을 기록했습니다. 상품 수가 적은 '기타'·'소비재' 테마는 실패했습니다.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="retrospective" class="section">
+      <div class="content-wrap">
+        <div class="section-header">
+          <p class="eyebrow">RETROSPECTIVE</p>
+          <h2>What next?</h2>
+          <p class="section-sub">한계점 및 향후 개선 방향</p>
+        </div>
+
+        <div class="feature-list">
+          <article class="feature-item">
+            <div class="feature-item__id">01</div>
+            <div class="feature-item__body">
+              <p class="feature-item__desc">단기 수익률 크롤링을 매일 수동 실행해야 데이터가 최신 상태로 유지됩니다 — 갱신 자동화(스케줄러)가 필요합니다.</p>
+            </div>
+          </article>
+          <article class="feature-item">
+            <div class="feature-item__id">02</div>
+            <div class="feature-item__body">
+              <p class="feature-item__desc">상품 수가 적은 '기타'·'소비재' 테마는 검색 정확도가 낮아, 더 다양한 질의에 대한 성능 검증과 테마 재분류가 필요합니다.</p>
+            </div>
+          </article>
+          <article class="feature-item">
+            <div class="feature-item__id">03</div>
+            <div class="feature-item__body">
+              <p class="feature-item__desc">구조화 로깅, 인증, Docker 기반 배포 자동화 같은 운영 요소가 아직 보완되지 않았습니다.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <script src="../script.js"></script>
