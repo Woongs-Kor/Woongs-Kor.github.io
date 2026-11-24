@@ -11,6 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
 
   <link rel="stylesheet" href="style.css" />
@@ -98,6 +99,7 @@
           <h2>Collections</h2>
         </div>
 
+
         <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
           <symbol id="i-folder-open" viewBox="0 0 24 24"><path d="m6 14 1.5-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.54 6a2 2 0 0 1-1.95 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2"/></symbol>
         </svg>
@@ -107,90 +109,108 @@
           <div class="folder-grid">
             <button class="folder folder--sage" type="button" aria-expanded="false" aria-controls="folder-data" data-folder="data">
               <span class="folder__tile">
+                <span class="folder__shape" aria-hidden="true"></span>
                 <span class="folder__tag">DA</span>
                 <span class="folder__no">01</span>
-                <svg class="folder__icon"><use href="#i-folder-open"/></svg>
               </span>
               <span class="folder__name">Data Analysis with Statistics</span>
             </button>
             <button class="folder folder--taupe" type="button" aria-expanded="false" aria-controls="folder-ml" data-folder="ml">
               <span class="folder__tile">
+                <span class="folder__shape" aria-hidden="true"></span>
                 <span class="folder__tag">ML &amp; DL</span>
                 <span class="folder__no">02</span>
-                <svg class="folder__icon"><use href="#i-folder-open"/></svg>
               </span>
               <span class="folder__name">Machine Learning & Deep Learning</span>
             </button>
             <button class="folder folder--slate" type="button" aria-expanded="false" aria-controls="folder-agent" data-folder="agent">
               <span class="folder__tile">
+                <span class="folder__shape" aria-hidden="true"></span>
                 <span class="folder__tag">AI Agent</span>
                 <span class="folder__no">03</span>
-                <svg class="folder__icon"><use href="#i-folder-open"/></svg>
               </span>
               <span class="folder__name">AI Agent with LLM</span>
             </button>
-          <div class="folder-contents" id="folder-data" hidden>
-            <p class="repo-empty">/* TBA */</p>
-
-            <hr class="folder-divider">
-
-            <div class="folder-ref">
-              <span class="folder-item__ref">DL-001</span>
-              <a class="folder-ref__title" href="projects/ecg-project.html">Time-Series Data Classification Using Deep Learning</a>
-              <button class="folder-ref__goto" type="button" data-open-folder="ml">→ see ML &amp; DL</button>
-            </div>
-          </div>
-          <div class="folder-contents" id="folder-ml" hidden>
-            <article id="ecg-project" class="folder-item">
-              <span class="folder-item__ref">DL-001</span>
-              <div class="folder-item__main">
-                <h3><a href="projects/ecg-project.html">Time-Series Data Classification Using Deep Learning</a></h3>
-                <p>[SCIE] Identification of Atrial Fibrillation With Single-Lead Mobile ECG During Normal Sinus Rhythm Using Deep Learning</p>
-              </div>
-              <div class="project-meta">
-                <span>PyTorch</span>
-                <span>1D ResNet</span>
-                <span>LRP</span>
-                <span>XAI</span>
-              </div>
-            </article>
-          </div>
-          <div class="folder-contents" id="folder-agent" hidden>
-            <article id="etf-agent" class="folder-item">
-              <span class="folder-item__ref">AIA-001</span>
-              <div class="folder-item__main">
-                <h3><a href="projects/etf-agent.html">ETF Advisor Agent</a></h3>
-                <p>투자 성향에 맞는 ETF를 찾아 추천해주는 AI 서비스</p>
-              </div>
-              <div class="project-meta">
-                <span>Python</span>
-                <span>LLM</span>
-                <span>RAG</span>
-                <span>Financial Data</span>
-              </div>
-            </article>
-          </div>
             <button class="folder folder--mauve" type="button" aria-expanded="false" aria-controls="folder-ax" data-folder="ax">
               <span class="folder__tile">
+                <span class="folder__shape" aria-hidden="true"></span>
                 <span class="folder__tag">AX</span>
                 <span class="folder__no">04</span>
-                <svg class="folder__icon"><use href="#i-folder-open"/></svg>
               </span>
               <span class="folder__name">AI Transformation</span>
             </button>
             <button class="folder folder--steel" type="button" aria-expanded="false" aria-controls="folder-infra" data-folder="infra">
               <span class="folder__tile">
+                <span class="folder__shape" aria-hidden="true"></span>
                 <span class="folder__tag">Infra</span>
                 <span class="folder__no">05</span>
-                <svg class="folder__icon"><use href="#i-folder-open"/></svg>
               </span>
               <span class="folder__name">Database &amp; Cloud Infrastructure</span>
             </button>
-          <div class="folder-contents" id="folder-ax" hidden>
+          <div class="folder-contents" id="folder-data" hidden>
+            <div class="folder-contents__bar">
+              <span class="folder-contents__path"><svg aria-hidden="true"><use href="#i-folder-open"/></svg>ARCHIVE / DA /</span>
+              <span>01 ITEM</span>
+            </div>
             <p class="repo-empty">/* TBA */</p>
+
+            <hr class="folder-divider">
+
+            <article class="folder-item folder-item--ref">
+              <span class="folder-item__doc folder-item__doc--ref" aria-hidden="true">DL-001</span>
+              <div class="folder-item__main">
+                <h3><a href="projects/ecg-project.html">Time-Series Data Classification Using Deep Learning</a></h3>
+                <p>[SCIE] Identification of Atrial Fibrillation With Single-Lead Mobile ECG During Normal Sinus Rhythm Using Deep Learning</p>
+                <p class="folder-item__tags">PyTorch / 1D ResNet / LRP / XAI</p>
+              </div>
+            </article>
+            <p class="folder-contents__end">End of directory</p>
+          </div>
+          <div class="folder-contents" id="folder-ml" hidden>
+            <div class="folder-contents__bar">
+              <span class="folder-contents__path"><svg aria-hidden="true"><use href="#i-folder-open"/></svg>ARCHIVE / ML &amp; DL /</span>
+              <span>01 ITEM</span>
+            </div>
+            <article id="ecg-project" class="folder-item">
+              <span class="folder-item__doc" aria-hidden="true">DL-001</span>
+              <div class="folder-item__main">
+                <h3><a href="projects/ecg-project.html">Time-Series Data Classification Using Deep Learning</a></h3>
+                <p>[SCIE] Identification of Atrial Fibrillation With Single-Lead Mobile ECG During Normal Sinus Rhythm Using Deep Learning</p>
+                <p class="folder-item__tags">PyTorch / 1D ResNet / LRP / XAI</p>
+              </div>
+            </article>
+            <p class="folder-contents__end">End of directory</p>
+          </div>
+          <div class="folder-contents" id="folder-agent" hidden>
+            <div class="folder-contents__bar">
+              <span class="folder-contents__path"><svg aria-hidden="true"><use href="#i-folder-open"/></svg>ARCHIVE / AI AGENT /</span>
+              <span>01 ITEM</span>
+            </div>
+            <article id="etf-agent" class="folder-item">
+              <span class="folder-item__doc" aria-hidden="true">AIA-001</span>
+              <div class="folder-item__main">
+                <h3><a href="projects/etf-agent.html">ETF Advisor Agent</a></h3>
+                <p>투자 성향에 맞는 ETF를 찾아 추천해주는 AI 서비스</p>
+                <p class="folder-item__tags">Python / LLM / RAG / Financial Data</p>
+              </div>
+            </article>
+            <p class="folder-contents__end">End of directory</p>
+          </div>
+          <div class="folder-contents" id="folder-ax" hidden>
+            <div class="folder-contents__bar">
+              <span class="folder-contents__path"><svg aria-hidden="true"><use href="#i-folder-open"/></svg>ARCHIVE / AX /</span>
+              <span>00 ITEMS</span>
+            </div>
+            <p class="repo-empty">/* TBA */</p>
+            <p class="folder-contents__end">End of directory</p>
           </div>
           <div class="folder-contents" id="folder-infra" hidden>
+            <div class="folder-contents__bar">
+              <span class="folder-contents__path"><svg aria-hidden="true"><use href="#i-folder-open"/></svg>ARCHIVE / INFRA /</span>
+              <span>00 ITEMS</span>
+            </div>
             <p class="repo-empty">/* TBA */</p>
+            <p class="folder-contents__end">End of directory</p>
           </div>
           </div>
 

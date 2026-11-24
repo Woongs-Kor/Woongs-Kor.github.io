@@ -1123,22 +1123,23 @@ a:focus-visible {
 
 .folder-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 18px;
 }
 
 .folder {
   --tile: #3d4942;
+  --tab: 22px;
   min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 0;
   padding: 0;
   border: 0;
   background: none;
   color: inherit;
   font: inherit;
-  text-align: left;
+  text-align: center;
   cursor: pointer;
 }
 
@@ -1151,35 +1152,98 @@ a:focus-visible {
 .folder__tile {
   position: relative;
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
+  align-items: flex-start;
   justify-content: space-between;
-  height: 128px;
-  margin-bottom: 10px;
-  padding: 14px 16px;
-  border: 1px solid transparent;
-  border-radius: 10px;
+  gap: 14px;
+  height: 150px;
+  padding: calc(var(--tab) + 16px) 22px 14px;
+}
+
+/* folder silhouette: body + tab, each drawn with a real 1px edge */
+.folder {
+  --edge: #fff;
+}
+
+.folder[aria-expanded="true"] {
+  --edge: #b9cdee;
+}
+
+.folder__shape {
+  position: absolute;
+  inset: var(--tab) 0 0 0;
+  box-sizing: border-box;
+  border: 1px solid var(--edge);
+  border-radius: 0 10px 10px 10px;
   background: var(--tile);
-  transition: filter .15s ease, border-color .15s ease;
+  transition: filter .15s ease;
+}
+
+.folder__shape::before,
+.folder__shape::after {
+  content: "";
+  position: absolute;
+  clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 100%, 0 100%);
+}
+
+/* tab outline */
+.folder__shape::before {
+  left: -1px;
+  top: calc(var(--tab) * -1 - 1px);
+  width: 42%;
+  height: calc(var(--tab) + 1px);
+  background: var(--edge);
+  border-radius: 10px 10px 0 0;
+}
+
+/* tab fill */
+.folder__shape::after {
+  left: 0;
+  top: calc(var(--tab) * -1);
+  width: calc(42% - 1px);
+  height: calc(var(--tab) - 1px);
+  background: var(--tile);
+  border-radius: 9px 9px 0 0;
+}
+
+.folder__tag,
+.folder__no {
+  position: relative;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
 .folder__tag {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: .02em;
+  color: #f5f5f7;
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+
+.folder__no {
+  font-size: 15px;
+  color: rgba(255, 255, 255, .6);
+}
+
+.folder:hover .folder__shape {
+  filter: brightness(1.15);
+}
+
+.folder[aria-expanded="true"] .folder__shape {
+  filter: brightness(1.15);
+}
+
+.folder[aria-expanded="true"] .folder__tile::after {
+  content: "";
   position: absolute;
-  top: 14px;
-  left: 16px;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: .06em;
-  color: rgba(255, 255, 255, .85);
-}
-
-.folder:hover .folder__tile {
-  filter: brightness(1.15);
-}
-
-.folder[aria-expanded="true"] .folder__tile {
-  border-color: var(--accent);
-  filter: brightness(1.15);
+  right: 16px;
+  bottom: 14px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #b9cdee;
 }
 
 .folder:focus-visible .folder__tile {
@@ -1187,72 +1251,144 @@ a:focus-visible {
   outline-offset: 3px;
 }
 
-.folder__no {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 14px;
-  color: rgba(255, 255, 255, .7);
-}
-
-.folder__icon {
-  width: 24px;
-  height: 24px;
-  fill: none;
-  stroke: rgba(255, 255, 255, .75);
-  stroke-width: 1.6;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
 .folder__name {
-  font-family: "Pretendard", sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 1.35;
-  color: #f5f5f7;
+  margin-top: 12px;
+  padding: 0 4px;
+  font-family: "IBM Plex Sans KR", "Pretendard", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: #fff;
   text-wrap: balance;
   overflow-wrap: anywhere;
+}
+
+.folder:hover .folder__name,
+.folder[aria-expanded="true"] .folder__name {
+  color: #f5f5f7;
 }
 
 
 .folder-contents {
   grid-column: 1 / -1;
-  margin: 0;
-  padding: 6px 0;
-  border-top: 1px solid var(--line-dark);
-  border-bottom: 1px solid var(--line-dark);
+  margin: 8px 0 0;
+  padding: 0;
 }
 
 .folder-contents[hidden] {
   display: none;
 }
 
+.folder-contents__bar,
+.folder-contents__end {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: #b4b7be;
+}
+
+.folder-contents__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 0 16px;
+  border-bottom: 1px solid var(--line-dark);
+  font-size: 14px;
+}
+
+.folder-contents__path {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.folder-contents__path svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.folder-contents__end {
+  margin: 0;
+  padding: 16px 0 2px;
+  border-top: 1px solid var(--line-dark);
+  font-size: 13px;
+}
+
 .folder-contents .repo-empty {
-  padding: 18px 0 10px;
+  padding: 22px 0 22px;
 }
 
 .folder-item {
+  position: relative;
   display: grid;
-  grid-template-columns: 70px minmax(0, 1fr) auto;
-  gap: 20px;
+  grid-template-columns: 56px minmax(0, 1fr) 20px;
+  gap: 24px;
+  align-items: center;
   padding: 22px 0;
 }
 
 .folder-item + .folder-item {
-  border-top: 1px solid var(--line);
+  border-top: 1px solid var(--line-dark);
 }
 
-.folder-item__ref {
-  padding-top: 6px;
+/* document icon */
+.folder-item__doc {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 56px;
+  height: 72px;
+  padding-bottom: 8px;
+  background: #3b4654;
+  clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 0 100%);
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 11px;
-  color: #77777c;
+  font-size: 9.5px;
+  letter-spacing: .02em;
+  color: rgba(255, 255, 255, .75);
+}
+
+.folder-item__doc::before {
+  content: "";
+  position: absolute;
+  top: 26px;
+  left: 10px;
+  right: 10px;
+  height: 20px;
+  background: repeating-linear-gradient(to bottom, rgba(255, 255, 255, .3) 0 1px, transparent 1px 7px);
+}
+
+.folder-item__doc::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 18px;
+  height: 18px;
+  background: #566275;
+  clip-path: polygon(0 0, 100% 100%, 0 100%);
+}
+
+/* sub-project variant: brown document */
+.folder-item__doc--ref {
+  background: #5a4b45;
+}
+
+.folder-item__doc--ref::after {
+  background: #75655d;
 }
 
 .folder-item__main h3 {
   margin: 0 0 8px;
-  font-family: "Pretendard", sans-serif;
-  font-size: 24px;
-  font-weight: 400;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 22px;
+  font-weight: 500;
   color: #f5f5f7;
 }
 
@@ -1260,24 +1396,46 @@ a:focus-visible {
   transition: color .15s ease;
 }
 
-.folder-item__main h3 a:hover {
+/* whole row is the link */
+.folder-item__main h3 a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.folder-item:hover .folder-item__main h3 a {
   color: var(--accent-strong);
 }
 
 .folder-item__main p {
-  margin: 0 0 10px;
-  color: var(--muted);
-  font-size: 14px;
-  line-height: 1.7;
+  margin: 0 0 8px;
+  font-family: "IBM Plex Sans KR", "Pretendard", sans-serif;
+  font-weight: 400;
+  color: #b4b7be;
+  font-size: 16px;
+  line-height: 1.6;
 }
 
-.folder-item .project-meta {
-  flex-direction: column;
-  align-items: flex-start;
-  align-self: start;
-  gap: 7px;
-  min-width: 120px;
-  padding-top: 6px;
+.folder-item__main .folder-item__tags {
+  margin: 0;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 15px;
+  color: #7f8ba0;
+}
+
+.folder-item::after {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-top: 1.6px solid #b4b7be;
+  border-right: 1.6px solid #b4b7be;
+  transform: rotate(45deg);
+  justify-self: end;
+  transition: transform .15s ease;
+}
+
+.folder-item:hover::after {
+  transform: translateX(3px) rotate(45deg);
 }
 
 .detail-title-row {
@@ -1297,7 +1455,7 @@ a:focus-visible {
 }
 
 .folder-divider {
-  margin: 8px 0 0;
+  margin: 0;
   border: 0;
   border-top: 1px solid var(--line-dark);
 }
@@ -1359,25 +1517,18 @@ a:focus-visible {
 
 @media (max-width: 1100px) {
   .folder-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .folder-item,
   .folder-ref {
     grid-template-columns: 1fr;
     gap: 10px;
-  }
-
-  .folder-item .project-meta {
-    flex-direction: row;
-    flex-wrap: wrap;
-    padding-top: 0;
   }
 }
 
 @media (max-width: 560px) {
   .folder-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
