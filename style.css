@@ -26,7 +26,7 @@
   --accent: #2997ff;
   --accent-strong: #4aa3ff;
 
-  --content-width: 1180px;
+  --content-width: 1440px;
 }
 
 * {
@@ -219,7 +219,7 @@ a {
   grid-template-columns: minmax(0, 1fr) 200px;
   gap: 0 80px;
   align-items: start;
-  max-width: 960px;
+  max-width: 1100px;
 }
 
 .hero-head {
@@ -1123,7 +1123,7 @@ a:focus-visible {
 
 .folder-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
 }
 
@@ -1146,6 +1146,7 @@ a:focus-visible {
 .folder--taupe { --tile: #4a4140; }
 .folder--slate { --tile: #3b4654; }
 .folder--mauve { --tile: #47414e; }
+.folder--steel { --tile: #3e4749; }
 
 .folder__tile {
   position: relative;
@@ -1214,9 +1215,11 @@ a:focus-visible {
 
 
 .folder-contents {
-  margin-top: 22px;
+  grid-column: 1 / -1;
+  margin: 0;
   padding: 6px 0;
   border-top: 1px solid var(--line-dark);
+  border-bottom: 1px solid var(--line-dark);
 }
 
 .folder-contents[hidden] {
