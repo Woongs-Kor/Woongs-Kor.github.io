@@ -342,7 +342,8 @@ a {
 }
 
 .hero-fields dt {
-  width: 52px;
+  width: 58px;
+  font-weight: 700;
   color: #77777c;
   letter-spacing: .08em;
 }
@@ -1117,7 +1118,7 @@ a:focus-visible {
   padding: 22px 26px 18px;
   border: 1px solid rgba(255, 255, 255, .08);
   border-radius: 14px;
-  background: #27292d;
+  background: #25272b;
 }
 
 .folder-grid {
@@ -1127,7 +1128,7 @@ a:focus-visible {
 }
 
 .folder {
-  --tile: #3d4942;
+  --tile: #527C70;
   --tab: 22px;
   min-width: 0;
   display: flex;
@@ -1142,11 +1143,11 @@ a:focus-visible {
   cursor: pointer;
 }
 
-.folder--sage { --tile: #3d4942; }
-.folder--taupe { --tile: #4a4140; }
-.folder--slate { --tile: #3b4654; }
-.folder--mauve { --tile: #47414e; }
-.folder--steel { --tile: #3e4749; }
+.folder--sage { --tile: #527C70; }
+.folder--taupe { --tile: #A06B65; }
+.folder--slate { --tile: #506F98; }
+.folder--mauve { --tile: #79678E; }
+.folder--steel { --tile: #9A8759; }
 
 .folder__tile {
   position: relative;
@@ -1388,7 +1389,7 @@ a:focus-visible {
   font-family: "IBM Plex Mono", ui-monospace, monospace;
   font-size: 22px;
   font-weight: 500;
-  color: #f5f5f7;
+  color: #479ff5;
 }
 
 .folder-item__main h3 a {
@@ -1403,23 +1404,53 @@ a:focus-visible {
 }
 
 .folder-item:hover .folder-item__main h3 a {
-  color: var(--accent-strong);
+  color: #8fc3ff;
 }
 
 .folder-item__main p {
   margin: 0 0 8px;
-  font-family: "IBM Plex Sans KR", "Pretendard", sans-serif;
+  font-family: "Pretendard", sans-serif;
   font-weight: 400;
   color: #b4b7be;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   font-size: 16px;
   line-height: 1.6;
 }
 
-.folder-item__main .folder-item__tags {
+.folder-item__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 4px;
+  margin-top: 4px;
+}
+
+.folder-item__meta-label {
   margin: 0;
-  font-family: "IBM Plex Mono", ui-monospace, monospace;
-  font-size: 15px;
-  color: #7f8ba0;
+  font-family: "IBM Plex Sans KR", "Pretendard", sans-serif;
+  font-size: 16px;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+  color: #8f95a0;
+}
+
+.folder-item__meta-label::after {
+  content: " //";
+}
+
+.folder-item__main .folder-item__meta-list {
+  margin: 0;
+  white-space: normal;
+  font-family: "Pretendard", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #e0bd85;
+}
+
+.folder-item__meta-list .kw-domain {
+  color: #6fdcc0;
 }
 
 .folder-item::after {
