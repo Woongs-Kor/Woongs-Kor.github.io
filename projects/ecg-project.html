@@ -57,45 +57,55 @@
             <a href="../assets/paper.pdf" target="_blank" rel="noreferrer">Paper</a>
           </div>
         </div>
-        <p class="detail-sub">단일 리드 모바일 ECG로 정상 동리듬 상태의 심방세동 위험을 식별한 연구</p>
+        <p class="detail-sub">딥러닝 기반의 모바일 심전도 심질환 분류 연구</p>
       </div>
     </header>
 
     <section id="overview" class="section">
       <div class="content-wrap">
         <div class="section-header">
-          <p class="eyebrow">OVERVIEW</p>
-          <p>
-            정상 동리듬(NSR) 상태에서 촬영한 단일 리드 모바일 심전도(ECG)로 심방세동(AF) 위험을 식별하는 딥러닝 모델을 개발하고, RNN · LSTM · ResNet50 세 모델의 성능을 비교한 연구입니다.
-          </p>
+          <p class="eyebrow">01 / OVERVIEW</p>
         </div>
 
-        <div class="info-grid">
-          <div class="info-card">
-            <span class="info-card__label">Data</span>
-            <span class="info-card__value">6,719명 · ECG 13,509건</span>
+        <div class="overview-split">
+          <div class="overview-main">
+            <div class="media-box media-box--wide">
+              <div class="file-meta">
+                <span>OVERVIEW.PNG</span>
+                <span>PREVIEW</span>
+              </div>
+              <img class="media-photo media-photo--natural" src="../assets/paper_overview.png" alt="단일 리드 모바일 ECG 기반 AF 예측 방법: 입력, 데이터 처리, 세그먼트, ResNet50, 출력 (논문 Fig. 1)" />
+              <p class="media-caption">Fig. 1 from Kim J, et al. J Korean Med Sci. 2024;39(5):e56 (CC BY-NC 4.0)</p>
+            </div>
           </div>
-          <div class="info-card">
-            <span class="info-card__label">Result</span>
-            <span class="info-card__value">AUC 0.79 · F1 71.9%</span>
-          </div>
-          <div class="info-card">
-            <span class="info-card__label">Tech</span>
-            <span class="info-card__value">1D ResNet50 · PyTorch</span>
-          </div>
-          <div class="info-card">
-            <span class="info-card__label">Role</span>
-            <span class="info-card__value">Co-First Author</span>
-          </div>
-        </div>
 
-        <div class="media-box">
-          <div class="file-meta">
-            <span>OVERVIEW.PNG</span>
-            <span>PREVIEW</span>
-          </div>
-          <img class="media-photo media-photo--natural" src="../assets/paper_overview.png" alt="단일 리드 모바일 ECG 기반 AF 예측 방법: 입력, 데이터 처리, 세그먼트, ResNet50, 출력 (논문 Fig. 1)" />
-          <p class="media-caption">Fig. 1 from Kim J, et al. J Korean Med Sci. 2024;39(5):e56 (CC BY-NC 4.0)</p>
+          <aside class="overview-aside">
+            <div class="stat-block">
+              <p class="stat-block__label">Research Summary</p>
+              <p class="stat-block__text">정상 동리듬(NSR) 상태에서 촬영한 단일 리드 모바일 심전도(ECG)로 심방세동(AF) 위험을 식별하는 딥러닝 모델을 개발하고, RNN · LSTM · ResNet50 세 모델의 성능을 비교한 연구입니다.</p>
+            </div>
+
+            <div class="stat-block">
+              <p class="stat-block__label">Data</p>
+              <div class="stat-block__pair">
+                <div class="stat"><span class="stat__num">6,719</span><span class="stat__cap">Patients</span></div>
+                <div class="stat"><span class="stat__num">13,509</span><span class="stat__cap">ECG Records</span></div>
+              </div>
+            </div>
+
+            <div class="stat-block">
+              <p class="stat-block__label">Model</p>
+              <div class="stat"><span class="stat__num stat__num--sm">1D CNN ResNet</span></div>
+            </div>
+
+            <div class="stat-block">
+              <p class="stat-block__label">Model Performance</p>
+              <div class="stat-block__pair">
+                <div class="stat stat--accent"><span class="stat__num">0.79</span><span class="stat__cap">AUC</span></div>
+                <div class="stat stat--accent"><span class="stat__num">71.9%</span><span class="stat__cap">F1-score</span></div>
+              </div>
+            </div>
+          </aside>
         </div>
       </div>
     </section>
@@ -103,9 +113,8 @@
     <section id="problem" class="section section-alt">
       <div class="content-wrap">
         <div class="section-header">
-          <p class="eyebrow">PROBLEM &amp; GOAL</p>
-          <h2>Why?</h2>
-          <p class="section-sub">왜 이 연구인가</p>
+          <p class="eyebrow">02 / PROBLEM &amp; GOAL</p>
+          <h2>조기 발견의 한계와 연구 목표</h2>
         </div>
 
         <ul class="bullet-list">
@@ -124,9 +133,8 @@
     <section id="method" class="section">
       <div class="content-wrap">
         <div class="section-header">
-          <p class="eyebrow">DATA &amp; METHOD</p>
-          <h2>How?</h2>
-          <p class="section-sub">데이터와 모델</p>
+          <p class="eyebrow">03 / DATA &amp; METHOD</p>
+          <h2>데이터 구성과 모델링 방법</h2>
         </div>
 
         <div class="flow">
@@ -175,9 +183,8 @@
     <section id="results" class="section section-alt">
       <div class="content-wrap">
         <div class="section-header">
-          <p class="eyebrow">RESULTS</p>
-          <h2>How well?</h2>
-          <p class="section-sub">성능 비교</p>
+          <p class="eyebrow">04 / RESULTS</p>
+          <h2>모델별 성능 비교와 검증</h2>
           <p>
             Test set 기준입니다. ResNet50이 Recall, F1-score, Accuracy, AUC에서 가장 높았습니다.
           </p>
@@ -216,7 +223,7 @@
     <section id="publication" class="section">
       <div class="content-wrap">
         <div class="section-header">
-          <p class="eyebrow">PUBLICATION</p>
+          <p class="eyebrow">05 / PUBLICATION</p>
           <h2>Identification of Atrial Fibrillation With Single-Lead Mobile ECG During Normal Sinus Rhythm Using Deep Learning</h2>
         </div>
 
