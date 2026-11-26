@@ -184,34 +184,39 @@
       <div class="content-wrap">
         <div class="section-header">
           <p class="eyebrow">04 / RESULTS</p>
-          <h2>모델별 성능 비교와 검증</h2>
+          <h2>모델별 성능 비교 및 검증</h2>
           <p>
-            Test set 기준입니다. ResNet50이 Recall, F1-score, Accuracy, AUC에서 가장 높았습니다.
+            Test set 기준 
           </p>
         </div>
 
         <div class="table-wrap">
           <table class="data-table">
             <thead>
-              <tr><th>Model</th><th>F1-score</th><th>Recall</th><th>Precision</th><th>Accuracy</th></tr>
+              <tr><th>Model</th><th>F1-score</th><th>Recall</th><th>Precision</th><th>Accuracy</th><th>AUC</th></tr>
             </thead>
             <tbody>
-              <tr class="is-best"><td>ResNet50</td><td>71.9%</td><td>79.3%</td><td>65.8%</td><td>70.5%</td></tr>
-              <tr><td>LSTM</td><td>62.2%</td><td>53.7%</td><td>73.8%</td><td>68.8%</td></tr>
-              <tr><td>RNN</td><td>59.5%</td><td>50.1%</td><td>73.1%</td><td>67.4%</td></tr>
+              <tr class="is-best"><td>ResNet50</td><td>71.9%</td><td>79.3%</td><td>65.8%</td><td>70.5%</td><td>0.79</td></tr>
+              <tr><td>LSTM</td><td>62.2%</td><td>53.7%</td><td>73.8%</td><td>68.8%</td><td>0.75</td></tr>
+              <tr><td>RNN</td><td>59.5%</td><td>50.1%</td><td>73.1%</td><td>67.4%</td><td>0.74</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="table-note">External set 기준(동일 기기, 72시간 Holter)</p>
+
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>Model</th><th>F1-score</th><th>Recall</th><th>Precision</th><th>Accuracy</th><th>AUC</th></tr>
+            </thead>
+            <tbody>
+              <tr class="is-best"><td>ResNet50</td><td>64.1%</td><td>68.9%</td><td>60.0%</td><td>63.4%</td><td>0.68</td></tr>
             </tbody>
           </table>
         </div>
 
         <dl class="kv">
-          <div class="kv__row">
-            <dt>Test AUC</dt>
-            <dd>ResNet50 0.79</dd>
-          </div>
-          <div class="kv__row">
-            <dt>External</dt>
-            <dd>72시간 Holter ECG 160명(세그먼트 6,558개)에서 ResNet50 F1-score 64.1% · Recall 68.9% · Precision 60.0% · Accuracy 63.4% · AUC 0.68</dd>
-          </div>
           <div class="kv__row">
             <dt>Limits</dt>
             <dd>외부 검증에서 성능이 내부보다 낮았고, 전향적 검증은 아직 진행 중입니다. 임상 적용을 위해서는 추가 연구가 필요합니다.</dd>

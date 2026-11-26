@@ -1,0 +1,62 @@
+{
+    "DA": {
+        "name": "Data Analysis",
+        "sections": [
+            "Overview",
+            "Problem & Goal",
+            "Data",
+            "Methodology",
+            "Analysis",
+            "Findings",
+            "Conclusion"
+        ]
+    },
+    "ML_DL": {
+        "name": "Machine Learning & Deep Learning",
+        "sections": [
+            "Overview",
+            "Problem & Goal",
+            "Data",
+            "Methodology",
+            "Experiments",
+            "Results",
+            "Discussion"
+        ]
+    },
+    "AI_AGENT": {
+        "name": "AI Agent",
+        "sections": [
+            "Overview",
+            "Problem & Goal",
+            "Data",
+            "Architecture",
+            "Implementation",
+            "Evaluation",
+            "Demo"
+        ]
+    },
+    "AX": {
+        "name": "AI Transformation",
+        "sections": [
+            "Overview",
+            "Problem & Goal",
+            "As-Is Process",
+            "To-Be Process",
+            "Implementation",
+            "Impact",
+            "Demo"
+        ]
+    },
+    "INFRA": {
+        "name": "Infrastructure",
+        "sections": [
+            "Overview",
+            "Problem & Goal",
+            "Architecture",
+            "Configuration",
+            "Deployment",
+            "Operations",
+            "Evaluation"
+        ]
+    }
+}
