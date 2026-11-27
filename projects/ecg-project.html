@@ -51,13 +51,13 @@
       <div class="content-wrap">
         <p class="eyebrow">DL-001</p>
         <div class="detail-title-row">
-          <h1 class="detail-title">Time-Series Data Classification Using Deep Learning</h1>
+          <h1 class="detail-title">Time-Series Classification Using Deep Learning</h1>
           <div class="project-links">
             <a href="https://github.com/Woongs-Kor/nsr-single-lead-ecg-afib-classification" target="_blank" rel="noreferrer">Github</a>
             <a href="../assets/paper.pdf" target="_blank" rel="noreferrer">Paper</a>
           </div>
         </div>
-        <p class="detail-sub">딥러닝 기반의 모바일 심전도 심질환 분류 연구</p>
+        <p class="detail-sub">딥러닝 기반 시계열 데이터 분류 연구</p>
       </div>
     </header>
 
@@ -82,7 +82,7 @@
           <aside class="overview-aside">
             <div class="stat-block">
               <p class="stat-block__label">Research Summary</p>
-              <p class="stat-block__text">정상 동리듬(NSR) 상태에서 촬영한 단일 리드 모바일 심전도(ECG)로 심방세동(AF) 위험을 식별하는 딥러닝 모델을 개발하고, RNN · LSTM · ResNet50 세 모델의 성능을 비교한 연구입니다.</p>
+              <p class="stat-block__text">정상 동리듬(NSR)으로 보이는 단일 유도 모바일 심전도(ECG)로 잠재적 심방세동(AF)를 식별하는 딥러닝 모델을 개발한 연구</p>
             </div>
 
             <div class="stat-block">
@@ -114,19 +114,20 @@
       <div class="content-wrap">
         <div class="section-header">
           <p class="eyebrow">02 / PROBLEM &amp; GOAL</p>
-          <h2>조기 발견의 한계와 연구 목표</h2>
+          <h2>육안으로 정상처럼 보이는 심전도에서 심질환(심방세동)을 식별할 수 있을까?</h2>
         </div>
 
-        <ul class="bullet-list">
-          <li>심방세동(AF)은 색전성 뇌졸중의 주요 원인이며, 합병증을 막으려면 조기 발견이 중요합니다.</li>
-          <li>AF는 발작성이거나 증상이 없는 경우가 많아, 증상이 나타나기 전에 찾아내기 어렵습니다.</li>
-          <li>12-lead ECG는 일시적인 부정맥을 포착하는 데 한계가 있고, Holter 모니터는 장시간 착용 부담이 큽니다.</li>
-          <li>단일 리드 모바일 ECG는 장기간 편하게 측정할 수 있지만, 정상 동리듬 상태에서 AF를 식별하는 연구는 부족했습니다.</li>
-        </ul>
+        <div class="problem-text">
+          <p>심방세동(AF)은 색전성 뇌졸중의 주요 원인이며, 합병증을 막으려면 조기 발견이 중요</p>
+          <p>AF는 발작성이거나 증상이 없는 경우가 많아, 조기 발견에 어려움이 존재</p>
+          <p>일반 12유도 심전도는 부정맥을 포착하는 데 한계가 있고, Holter 모니터는 장시간 착용이 부담됨</p>
+          <p>단일 유도 모바일 심전도는 측정이 간단하고 장기간 착용이 가능해 데이터를 수집하기에 용이함</p>
+        </div>
 
-        <p class="goal">
-          <strong>Goal.</strong> 정상 동리듬일 때 측정한 단일 리드 모바일 ECG에서, 사람 눈으로는 구분하기 어려운 AF의 미세한 특징을 딥러닝으로 식별할 수 있는지 검증합니다.
-        </p>
+        <div class="goal-callout">
+          <p class="goal-callout__label">GOAL</p>
+          <p class="goal-callout__text">정상 동리듬으로 보이는 단일 유도 모바일 심전도에서, 육안으로 구분하기 어려운 심방세동의 미세한 특징을 딥러닝으로 식별 가능한지 검증</p>
+        </div>
       </div>
     </section>
 
