@@ -1984,8 +1984,8 @@ a:focus-visible {
   line-height: 1.75;
 }
 
-/* ECG data & method */
-#method .content-wrap {
+/* Keep ECG archive sections aligned to the wider data & method layout. */
+.ecg-project-page .content-wrap {
   width: min(100%, 1680px);
 }
 
