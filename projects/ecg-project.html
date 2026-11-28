@@ -65,6 +65,7 @@
       <div class="content-wrap">
         <div class="section-header">
           <p class="eyebrow">01 / OVERVIEW</p>
+          <h2>단일 유도 모바일 ECG로 잠재적 AF를 식별할 수 있을까?</h2>
         </div>
 
         <div class="overview-split">
@@ -80,13 +81,13 @@
           </div>
 
           <aside class="overview-aside">
-            <div class="stat-block">
-              <p class="stat-block__label">Research Summary</p>
-              <p class="stat-block__text">정상 동리듬(NSR)으로 보이는 단일 유도 모바일 심전도(ECG)로 잠재적 심방세동(AF)를 식별하는 딥러닝 모델을 개발한 연구</p>
+            <div class="stat-block stat-block--summary">
+              <p class="stat-block__label">RESEARCH SUMMARY</p>
+              <p class="stat-block__text">정상 동리듬으로 기록된 단일 유도 모바일 ECG에서, 잠재적 심방세동(AF)을 식별할 수 있는 딥러닝 모델을 개발하고 평가한 연구입니다.</p>
             </div>
 
             <div class="stat-block">
-              <p class="stat-block__label">Data</p>
+              <p class="stat-block__label">STUDY DATA</p>
               <div class="stat-block__pair">
                 <div class="stat"><span class="stat__num">6,719</span><span class="stat__cap">Patients</span></div>
                 <div class="stat"><span class="stat__num">13,509</span><span class="stat__cap">ECG Records</span></div>
@@ -94,12 +95,7 @@
             </div>
 
             <div class="stat-block">
-              <p class="stat-block__label">Model</p>
-              <div class="stat"><span class="stat__num stat__num--sm">1D CNN ResNet</span></div>
-            </div>
-
-            <div class="stat-block">
-              <p class="stat-block__label">Model Performance</p>
+              <p class="stat-block__label">TEST SET · RESNET50</p>
               <div class="stat-block__pair">
                 <div class="stat stat--accent"><span class="stat__num">0.79</span><span class="stat__cap">AUC</span></div>
                 <div class="stat stat--accent"><span class="stat__num">71.9%</span><span class="stat__cap">F1-score</span></div>
@@ -114,19 +110,37 @@
       <div class="content-wrap">
         <div class="section-header">
           <p class="eyebrow">02 / PROBLEM &amp; GOAL</p>
-          <h2>육안으로 정상처럼 보이는 심전도에서 심질환(심방세동)을 식별할 수 있을까?</h2>
+          <h2>정상으로 보이는 심전도에도 심방세동의 단서가 있을까요?</h2>
+          <p>조기 발견이 어려운 심방세동을 더 간편한 심전도 데이터로 찾아낼 수 있는지 살펴봅니다.</p>
         </div>
 
-        <div class="problem-text">
-          <p>심방세동(AF)은 색전성 뇌졸중의 주요 원인이며, 합병증을 막으려면 조기 발견이 중요</p>
-          <p>AF는 발작성이거나 증상이 없는 경우가 많아, 조기 발견에 어려움이 존재</p>
-          <p>일반 12유도 심전도는 부정맥을 포착하는 데 한계가 있고, Holter 모니터는 장시간 착용이 부담됨</p>
-          <p>단일 유도 모바일 심전도는 측정이 간단하고 장기간 착용이 가능해 데이터를 수집하기에 용이함</p>
+        <div class="problem-cards">
+          <article class="problem-card">
+            <span class="problem-card__index">01 / CHALLENGE</span>
+            <h3>놓치기 쉬운 심방세동</h3>
+            <p>심방세동(AF)은 색전성 뇌졸중의 주요 원인입니다. 발작성으로 나타나거나 증상이 없는 경우가 많아 조기 발견이 중요합니다.</p>
+          </article>
+          <article class="problem-card">
+            <span class="problem-card__index">02 / CURRENT TESTS</span>
+            <h3>검사 방식의 제약</h3>
+            <p>일반 12유도 심전도는 부정맥을 포착하는 데 한계가 있고, Holter 모니터는 장시간 착용이 부담될 수 있습니다.</p>
+          </article>
+          <article class="problem-card">
+            <span class="problem-card__index">03 / OPPORTUNITY</span>
+            <h3>모바일 ECG의 가능성</h3>
+            <p>단일 유도 모바일 심전도는 측정이 간단하고 장기간 착용할 수 있어, 심전도 데이터를 수집하기에 용이합니다.</p>
+          </article>
         </div>
 
-        <div class="goal-callout">
-          <p class="goal-callout__label">GOAL</p>
-          <p class="goal-callout__text">정상 동리듬으로 보이는 단일 유도 모바일 심전도에서, 육안으로 구분하기 어려운 심방세동의 미세한 특징을 딥러닝으로 식별 가능한지 검증</p>
+        <div class="research-brief">
+          <div class="research-brief__item">
+            <p class="goal-callout__label">RESEARCH QUESTION</p>
+            <p>육안으로 정상처럼 보이는 단일 유도 ECG에도 AF와 연관된 특징이 남아 있을까요?</p>
+          </div>
+          <div class="research-brief__item research-brief__item--goal">
+            <p class="goal-callout__label">STUDY GOAL</p>
+            <p>정상 동리듬으로 보이는 단일 유도 모바일 심전도에서, 육안으로 구분하기 어려운 심방세동의 미세한 특징을 딥러닝으로 식별할 수 있는지 검증합니다.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -134,50 +148,223 @@
     <section id="method" class="section">
       <div class="content-wrap">
         <div class="section-header">
-          <p class="eyebrow">03 / DATA &amp; METHOD</p>
-          <h2>데이터 구성과 모델링 방법</h2>
+          <p class="eyebrow">03 / METHODOLOGY</p>
+          <h2>데이터 구성 및 모델 개발</h2>
         </div>
 
-        <div class="flow">
-          <span class="flow__step">Raw ECG<small>256 Hz · 약 60초</small></span>
-          <span class="flow__arrow">&rarr;</span>
-          <span class="flow__step">Preprocessing<small>PQRST 검출 · 0.5 Hz high-pass</small></span>
-          <span class="flow__arrow">&rarr;</span>
-          <span class="flow__step">Segmentation<small>10초 단위</small></span>
-          <span class="flow__arrow">&rarr;</span>
-          <span class="flow__step">Under-sampling<small>클래스 불균형 보정</small></span>
-          <span class="flow__arrow">&rarr;</span>
-          <span class="flow__step">Model<small>ResNet50 · RNN · LSTM</small></span>
-          <span class="flow__arrow">&rarr;</span>
-          <span class="flow__step">Output<small>AF / Healthy</small></span>
-        </div>
+        <div class="method-stack">
+          <article class="method-panel">
+            <header class="method-panel__head">
+              <span class="method-panel__index">01</span>
+              <div>
+                <p class="method-panel__eyebrow">DATA PREPARATION</p>
+                <h3>데이터 수집 및 전처리</h3>
+              </div>
+              <p class="method-panel__note">수집 정보 · 신호 처리 · 라벨 기준</p>
+            </header>
 
-        <dl class="kv">
-          <div class="kv__row">
-            <dt>Collection</dt>
-            <dd>전남대학교병원 순환기내과·신경과 방문/입원 환자의 모바일 ECG(mobiCARE MC100)를 2021.07~2022.12 동안 전향적으로 수집. 모든 ECG는 임상 전문가가 진단·라벨링 (IRB 승인)</dd>
-          </div>
-          <div class="kv__row">
-            <dt>Label</dt>
-            <dd>AF 이력(12-lead ECG에서 AF가 1회 이상 기록된 환자)의 NSR ECG는 &ldquo;AF&rdquo;, 그 외는 &ldquo;Healthy&rdquo;. AF·비동리듬·정보 누락·AF 절제술 환자 ECG는 제외</dd>
-          </div>
-          <div class="kv__row">
-            <dt>Imbalance</dt>
-            <dd>Healthy 세그먼트 38,760개를 무작위 제외(random under-sampling) &rarr; AF 15,157 · Healthy 16,610</dd>
-          </div>
-          <div class="kv__row">
-            <dt>Split</dt>
-            <dd>Train 19,060 · Internal validation 6,353 · Test 6,354 (6:2:2)</dd>
-          </div>
-          <div class="kv__row">
-            <dt>Training</dt>
-            <dd>AdamW, learning rate 0.0001, batch size 32, 최대 50 epoch (12 epoch에서 early stopping), Cross-entropy loss. Python 3.9 · PyTorch 2.0.1 · RTX 3090 Ti</dd>
-          </div>
-          <div class="kv__row">
-            <dt>Models</dt>
-            <dd>1D ResNet50을 주 모델로 사용하고, 시계열 모델인 RNN과 LSTM을 비교 대상으로 평가</dd>
-          </div>
-        </dl>
+            <div class="prep-meta-grid">
+              <div class="prep-meta">
+                <span class="prep-fact__label">DATA SOURCE</span>
+                <strong>전남대학교병원</strong>
+                <small>순환기내과 환자 데이터</small>
+              </div>
+              <div class="prep-meta">
+                <span class="prep-fact__label">COLLECTION PERIOD</span>
+                <strong>2021.07 – 2022.12</strong>
+                <small>전향적 데이터 수집</small>
+              </div>
+              <div class="prep-meta">
+                <span class="prep-fact__label">SIGNAL SPECIFICATION</span>
+                <strong>256 Hz · 약 1분</strong>
+                <small>Single-Lead Mobile ECG</small>
+              </div>
+            </div>
+
+            <div class="pipeline-block">
+              <p class="chart-kicker">ECG PREPROCESSING PIPELINE</p>
+              <div class="prep-pipeline" aria-label="Raw ECG, PQRST 검출, 필터링, 10초 단위 분할 순서의 전처리 파이프라인">
+                <div class="pipeline-step">
+                  <div class="pipeline-step__visual" aria-hidden="true">
+                    <svg viewBox="0 0 160 54"><path d="M4 29h15l6-8 7 15 8-29 9 37 8-20 8 5 7-8 8 8h14l6-7 7 14 8-27 9 34 8-18 8 4 7-7 8 7h8" /></svg>
+                  </div>
+                  <span class="pipeline-step__number">STEP 01</span>
+                  <strong>Raw ECG</strong>
+                  <small>원본 심전도 신호</small>
+                </div>
+                <span class="pipeline-arrow" aria-hidden="true">&rarr;</span>
+                <div class="pipeline-step">
+                  <div class="pipeline-step__visual" aria-hidden="true">
+                    <svg viewBox="0 0 160 54"><path d="M4 29h15l6-8 7 15 8-29 9 37 8-20 8 5 7-8 8 8h14l6-7 7 14 8-27 9 34 8-18 8 4 7-7 8 7h8" /><circle cx="40" cy="7" r="3" /><circle cx="111" cy="7" r="3" /></svg>
+                  </div>
+                  <span class="pipeline-step__number">STEP 02</span>
+                  <strong>Feature Detection</strong>
+                  <small>PQRST 검출</small>
+                </div>
+                <span class="pipeline-arrow" aria-hidden="true">&rarr;</span>
+                <div class="pipeline-step">
+                  <div class="pipeline-step__visual" aria-hidden="true">
+                    <svg viewBox="0 0 160 54"><path d="M4 29h15l6-7 7 13 8-25 9 32 8-18 8 5 7-6 8 6h14l6-6 7 12 8-24 9 30 8-16 8 4 7-6 8 6h8" /></svg>
+                  </div>
+                  <span class="pipeline-step__number">STEP 03</span>
+                  <strong>Filtering</strong>
+                  <small>0.5 Hz Butterworth</small>
+                </div>
+                <span class="pipeline-arrow" aria-hidden="true">&rarr;</span>
+                <div class="pipeline-step pipeline-step--accent">
+                  <div class="pipeline-step__visual pipeline-step__visual--segments" aria-hidden="true">
+                    <svg viewBox="0 0 160 54"><path d="M4 29h15l6-8 7 15 8-29 9 37 8-20 8 5 7-8 8 8h14l6-7 7 14 8-27 9 34 8-18 8 4 7-7 8 7h8" /><path class="pipeline-step__divider" d="M42 4v46M82 4v46M122 4v46" /></svg>
+                  </div>
+                  <span class="pipeline-step__number">STEP 04</span>
+                  <strong>Segmentation</strong>
+                  <small>10초 단위 분할</small>
+                </div>
+              </div>
+              <p class="pipeline-caption">파형 이미지는 처리 흐름을 설명하기 위한 개념도이며, 실제 연구 데이터가 아닙니다.</p>
+            </div>
+
+            <div class="labeling-block">
+              <p class="chart-kicker">LABELING CRITERIA</p>
+              <div class="labeling-grid">
+                <div class="labeling-card labeling-card--af">
+                  <strong>AF</strong>
+                  <p>정상 동리듬 ECG · 심방세동 과거력 있음</p>
+                </div>
+                <div class="labeling-card">
+                  <strong>Healthy</strong>
+                  <p>정상 동리듬 ECG · 심방세동 과거력 없음</p>
+                </div>
+              </div>
+              <p class="labeling-note">모든 ECG는 임상 전문가가 진단하고 라벨링했습니다.</p>
+            </div>
+          </article>
+
+          <article class="method-panel">
+            <header class="method-panel__head">
+              <span class="method-panel__index">02</span>
+              <div>
+                <p class="method-panel__eyebrow">DATASET CONSTRUCTION</p>
+                <h3>데이터셋 구성</h3>
+              </div>
+              <p class="method-panel__note">클래스 균형 · 학습/검증/평가 분할</p>
+            </header>
+
+            <div class="dataset-grid">
+              <section class="chart-card" aria-labelledby="class-balance-title">
+                <div class="chart-card__head">
+                  <div>
+                    <p class="chart-kicker">RANDOM UNDER-SAMPLING</p>
+                    <h4 id="class-balance-title">클래스 분포 변화</h4>
+                  </div>
+                  <span class="chart-card__unit">SEGMENTS</span>
+                </div>
+
+                <div class="distribution-chart">
+                  <div class="distribution-group" data-proportion-group>
+                    <div class="distribution-group__head">
+                      <strong>Before</strong>
+                      <span>Under-sampling 전</span>
+                    </div>
+                    <div class="distribution-track" data-proportion-track role="img" aria-label="Under-sampling 전 AF 15,157개, Healthy 55,370개">
+                      <span class="distribution-segment distribution-segment--af" data-chart-count="15157" data-chart-key="af" aria-hidden="true"></span>
+                      <span class="distribution-segment distribution-segment--healthy" data-chart-count="55370" data-chart-key="healthy" aria-hidden="true"></span>
+                    </div>
+                    <ul class="distribution-legend">
+                      <li><span class="legend-swatch legend-swatch--af"></span><span>AF</span><strong>15,157</strong><span class="chart-share" data-chart-share="af"></span></li>
+                      <li><span class="legend-swatch legend-swatch--healthy"></span><span>Healthy</span><strong>55,370</strong><span class="chart-share" data-chart-share="healthy"></span></li>
+                    </ul>
+                  </div>
+
+                  <div class="distribution-group" data-proportion-group>
+                    <div class="distribution-group__head">
+                      <strong>After</strong>
+                      <span>Under-sampling 후</span>
+                    </div>
+                    <div class="distribution-track" data-proportion-track role="img" aria-label="Under-sampling 후 AF 15,157개, Healthy 16,610개">
+                      <span class="distribution-segment distribution-segment--af" data-chart-count="15157" data-chart-key="af" aria-hidden="true"></span>
+                      <span class="distribution-segment distribution-segment--healthy" data-chart-count="16610" data-chart-key="healthy" aria-hidden="true"></span>
+                    </div>
+                    <ul class="distribution-legend">
+                      <li><span class="legend-swatch legend-swatch--af"></span><span>AF</span><strong>15,157</strong><span class="chart-share" data-chart-share="af"></span></li>
+                      <li><span class="legend-swatch legend-swatch--healthy"></span><span>Healthy</span><strong>16,610</strong><span class="chart-share" data-chart-share="healthy"></span></li>
+                    </ul>
+                  </div>
+                </div>
+                <p class="chart-note">Healthy 38,760개를 무작위 제외. Before의 Healthy 55,370은 보고된 제외량과 잔여량(16,610)의 합산값입니다.</p>
+              </section>
+
+              <section class="chart-card" aria-labelledby="split-title">
+                <div class="chart-card__head">
+                  <div>
+                    <p class="chart-kicker">DATA SPLIT · 6:2:2</p>
+                    <h4 id="split-title">학습 데이터 분할</h4>
+                  </div>
+                  <span class="chart-card__unit">31,767 TOTAL</span>
+                </div>
+
+                <div class="split-chart" data-proportion-group>
+                  <div class="split-track" data-proportion-track role="img" aria-label="Train 19,060개, Internal validation 6,353개, Test 6,354개">
+                    <span class="split-segment split-segment--train" data-chart-count="19060" data-chart-key="train" aria-hidden="true"></span>
+                    <span class="split-segment split-segment--validation" data-chart-count="6353" data-chart-key="validation" aria-hidden="true"></span>
+                    <span class="split-segment split-segment--test" data-chart-count="6354" data-chart-key="test" aria-hidden="true"></span>
+                  </div>
+                  <ul class="split-legend">
+                    <li><span class="legend-swatch legend-swatch--train"></span><span>Train</span><strong>19,060</strong><span class="chart-share" data-chart-share="train"></span></li>
+                    <li><span class="legend-swatch legend-swatch--validation"></span><span>Internal validation</span><strong>6,353</strong><span class="chart-share" data-chart-share="validation"></span></li>
+                    <li><span class="legend-swatch legend-swatch--test"></span><span>Test</span><strong>6,354</strong><span class="chart-share" data-chart-share="test"></span></li>
+                  </ul>
+                </div>
+              </section>
+            </div>
+          </article>
+
+          <article class="method-panel">
+            <header class="method-panel__head">
+              <span class="method-panel__index">03</span>
+              <div>
+                <p class="method-panel__eyebrow">MODEL DEVELOPMENT</p>
+                <h3>모델 설계 및 학습</h3>
+              </div>
+              <p class="method-panel__note">주 모델 · 비교 모델 · 학습 설정</p>
+            </header>
+
+            <div class="model-grid">
+              <article class="model-card">
+                <span class="model-card__role">COMPARISON MODEL</span>
+                <strong>RNN</strong>
+                <div class="model-diagram" aria-hidden="true"><span></span><span></span><span></span></div>
+              </article>
+              <article class="model-card">
+                <span class="model-card__role">COMPARISON MODEL</span>
+                <strong>LSTM</strong>
+                <div class="model-diagram model-diagram--lstm" aria-hidden="true"><span></span><span></span><span></span></div>
+              </article>
+              <article class="model-card model-card--primary">
+                <span class="model-card__role">PRIMARY MODEL</span>
+                <strong>1D ResNet50</strong>
+                <div class="model-diagram model-diagram--resnet" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+              </article>
+            </div>
+
+            <div class="training-block">
+              <p class="chart-kicker">TRAINING CONFIGURATION</p>
+              <div class="training-grid">
+                <div class="training-item"><span>Optimizer</span><strong>AdamW</strong></div>
+                <div class="training-item"><span>Learning Rate</span><strong>0.0001</strong></div>
+                <div class="training-item"><span>Batch Size</span><strong>32</strong></div>
+                <div class="training-item"><span>Epochs</span><strong>최대 50</strong><small>12 epoch에서 early stopping</small></div>
+                <div class="training-item"><span>Loss</span><strong>Cross-entropy</strong></div>
+              </div>
+            </div>
+
+            <div class="runtime-strip">
+              <span class="runtime-strip__label">ENVIRONMENT</span>
+              <span>Python 3.9</span>
+              <span>PyTorch 2.0.1</span>
+              <span>RTX 3090 Ti</span>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 

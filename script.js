@@ -56,3 +56,34 @@ document.querySelectorAll("[data-open-folder]").forEach((link) => {
     }
   });
 });
+
+document.querySelectorAll("[data-proportion-group]").forEach((group) => {
+  const segments = Array.from(group.querySelectorAll("[data-chart-count]"));
+  if (segments.length === 0) {
+    return;
+  }
+
+  const counts = segments.map((segment) => Number(segment.dataset.chartCount));
+  if (counts.some((count) => !Number.isFinite(count) || count < 0)) {
+    console.error("Invalid count in proportional chart.", group);
+    return;
+  }
+
+  const total = counts.reduce((sum, count) => sum + count, 0);
+  if (total === 0) {
+    console.error("Proportional chart counts must sum to more than zero.", group);
+    return;
+  }
+
+  segments.forEach((segment, index) => {
+    const share = (counts[index] / total) * 100;
+    segment.style.flexBasis = `${share}%`;
+
+    const shareLabel = group.querySelector(
+      `[data-chart-share="${segment.dataset.chartKey}"]`
+    );
+    if (shareLabel) {
+      shareLabel.textContent = `${share.toFixed(1)}%`;
+    }
+  });
+});
